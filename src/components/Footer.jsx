@@ -16,7 +16,7 @@ const cols = [
       { label: 'About Us',  to: '/#about' },
       { label: 'Our Work',  to: '/#work'  },
       { label: 'Blog',      to: '/blog'   },
-      { label: 'Careers',   to: '/#'      },
+      { label: 'Careers',   to: '/careers' },
     ],
   },
   {
