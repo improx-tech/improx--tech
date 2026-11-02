@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchFromWp } from '../utils/wpApi';
+import { usePageSEO } from '../components/SEOManager';
 
 function BlogPostPage() {
   const { id } = useParams();
@@ -33,6 +34,23 @@ function BlogPostPage() {
   const featuredImage =
     post?._embedded?.['wp:featuredmedia']?.[0]?.source_url ||
     'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80';
+
+
+  // Dynamic SEO metadata derived from the fetched blog post
+  const cleanTitle = post?.title?.rendered ? post.title.rendered.replace(/<[^>]+>/g, '') : '';
+  const cleanExcerpt = post?.excerpt?.rendered ? post.excerpt.rendered.replace(/<[^>]+>/g, '').trim().slice(0, 155) : '';
+
+  usePageSEO(
+    post
+      ? {
+          title: `${cleanTitle} | Improx Tech Blog`,
+          description: cleanExcerpt || 'Explore the latest insights on software engineering, cloud, and AI from Improx Tech.',
+          keywords: `${cleanTitle.toLowerCase().split(' ').filter(w => w.length > 3).slice(0, 6).join(', ')}, technology insights, Improx Tech blog`,
+          canonicalUrl: `https://improxtech.com/blog/${id}`,
+          ogImage: featuredImage,
+        }
+      : null
+  );
 
   return (
     <div style={{ background: 'var(--bg-base)', minHeight: '100vh', paddingTop: '130px', paddingBottom: '96px' }}>
