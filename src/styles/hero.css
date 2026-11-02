@@ -1,0 +1,10 @@
+/* Hero background utilities */
+.hero-section { position: relative; }
+.hero-bg-video { display: block; }
+.hero-bg-img   { display: none;  }
+
+@media (max-width: 768px) {
+  .hero-bg-video { display: none;  }
+  .hero-bg-img   { display: block; }
+  .hero-blob     { display: none;  }
+}

@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS for improxtech.com
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Reverse Proxy /api/* and /wp-json/* to FastAPI backend (port 8000)
+  RewriteRule ^api/(.*)$ http://127.0.0.1:8000/api/$1 [P,L]
+  RewriteRule ^wp-json/(.*)$ http://127.0.0.1:8000/wp-json/$1 [P,L]
+
+  # Single Page Application (SPA) client routing
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . /index.html [L]
+</IfModule>
