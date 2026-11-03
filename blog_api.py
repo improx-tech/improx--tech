@@ -372,6 +372,17 @@ async def webhook_publish_blog(request: Request, x_api_key: Optional[str] = Head
     conn.commit()
     conn.close()
 
+    # Automatically sync to src/data/posts.json so Git-based deployments are instantly updated
+    try:
+        posts_json_path = os.path.join(os.path.dirname(__file__), "src", "data", "posts.json")
+        os.makedirs(os.path.dirname(posts_json_path), exist_ok=True)
+        all_posts = list_blogs()
+        with open(posts_json_path, "w", encoding="utf-8") as f:
+            json.dump(all_posts, f, indent=2)
+        print(f"[SYNC] Updated {len(all_posts)} posts in {posts_json_path}")
+    except Exception as sync_err:
+        print(f"[SYNC WARNING] Could not update posts.json: {sync_err}")
+
     print(f"[PUBLISH] Webhook received and saved blog: '{title}' (slug: {slug}, id: {b_id})")
 
     return {
