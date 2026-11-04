@@ -6,14 +6,14 @@ const cols = [
     links: [
       { label: 'Product Engineering',    to: '/services/product-engineering' },
       { label: 'Application Services',   to: '/services/application-services' },
-      { label: 'Technology Services',    to: '/#services' },
-      { label: 'AI & Business Intel.',   to: '/#services' },
+      { label: 'Technology Services',    to: '/services/technology-services' },
+      { label: 'AI & Business Intel.',   to: '/services/ai-ml' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'About Us',  to: '/#about' },
+      { label: 'About Us',  to: '/about' },
       { label: 'Our Work',  to: '/#work'  },
       { label: 'Blog',      to: '/blog'   },
       { label: 'Careers',   to: '/careers' },
@@ -45,9 +45,15 @@ function Footer() {
             </a>
           </div>
           <div className="footer-socials">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in" /></a>
-            <a href="https://twitter.com"  target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i className="fa-brands fa-x-twitter" /></a>
-            <a href="https://github.com"   target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fa-brands fa-github" /></a>
+            <a href="https://www.linkedin.com/company/40880478/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="Connect on LinkedIn">
+              <i className="fa-brands fa-linkedin-in" />
+            </a>
+            <a href="https://www.instagram.com/improxtech?utm_source=qr&exln=cDUyd3JtM2Fkcms2" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Follow on Instagram">
+              <i className="fa-brands fa-instagram" />
+            </a>
+            <a href="https://github.com/improx-tech" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub Organization">
+              <i className="fa-brands fa-github" />
+            </a>
           </div>
         </div>
         {cols.map(col => (

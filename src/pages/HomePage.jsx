@@ -113,25 +113,28 @@ const CASE_STUDIES = [
 // Fallback BLOGS list if WordPress is offline
 const FALLBACK_BLOGS = [
   {
-    category: 'Cloud',
-    date: 'June 10, 2026',
-    title: 'The Future of Cloud Native Applications in 2026',
-    desc: 'How containerization and platform engineering are redefining enterprise software delivery.',
-    img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=700&q=80',
+    category: 'Enterprise Architecture',
+    date: 'November 4, 2026',
+    title: 'Architecting High-Throughput Digital Platforms: From Microservices to AI Workflows',
+    desc: 'An engineering guide on designing resilient, high-concurrency enterprise platforms using event-driven architectures, automated canary pipelines, and sandboxed AI agent orchestrations.',
+    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    id: 4,
   },
   {
-    category: 'Security',
-    date: 'May 28, 2026',
-    title: 'Zero Trust Architecture at Scale',
-    desc: 'A practical guide to securing enterprise endpoints and network perimeters in 2026.',
-    img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80',
+    category: 'DevOps & Cloud',
+    date: 'October 28, 2026',
+    title: 'Benchmarking Multi-Cloud Kubernetes Latency & Ingress Performance',
+    desc: 'Comparative latency and egress cost benchmarks across GCP GKE, AWS EKS, and Azure AKS with Cilium eBPF networking.',
+    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80',
+    id: 2,
   },
   {
-    category: 'AI',
-    date: 'May 15, 2026',
-    title: 'LLMs in Enterprise: Beyond the Hype',
-    desc: 'Where Generative AI is delivering real, measurable value in enterprise operations.',
-    img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=80',
+    category: 'AI & Data',
+    date: 'October 15, 2026',
+    title: 'Enterprise AI Agent Orchestration: Lessons from Production Deployments',
+    desc: 'Designing deterministic, secure multi-agent systems with MCP protocol support, sandboxed tool execution, and guardrail validations.',
+    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80',
+    id: 3,
   },
 ];
 
@@ -142,6 +145,7 @@ function ServiceHoverCard({ service }) {
   return (
     <div 
       className="glass-card reveal" 
+      onClick={() => setHovered(h => !h)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{ 
@@ -150,6 +154,7 @@ function ServiceHoverCard({ service }) {
         flexDirection: 'column', 
         gap: '16px', 
         minHeight: '380px',
+        cursor: 'pointer',
         position: 'relative',
         overflow: 'hidden',
         transition: 'transform 0.3s ease, border-color 0.3s ease',
@@ -184,7 +189,7 @@ function ServiceHoverCard({ service }) {
             {service.desc}
           </p>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', marginTop: 'auto' }}>
-            Hover to view capabilities <i className="fa-solid fa-chevron-down" style={{ fontSize: '0.7rem' }} />
+            Hover / tap to view capabilities <i className="fa-solid fa-chevron-down" style={{ fontSize: '0.7rem' }} />
           </span>
         </div>
 
@@ -375,8 +380,9 @@ function Hero() {
         </div>
 
         {/* ── DYNAMIC SERVICES CONSTELLATION MAP ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
           
+          <div className="constellation-wrapper">
           <div style={{ 
             position: 'relative', 
             width: '380px', 
@@ -536,6 +542,7 @@ function Hero() {
               );
             })}
           </div>
+          </div>
 
           {/* Active Node Detail Card */}
           <div className="glass-card reveal active" style={{ width: '100%', maxWidth: '480px', padding: '28px', background: 'var(--bg-card)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-raise)' }}>
@@ -614,7 +621,12 @@ function HomePage() {
       try {
         const posts = await fetchFromWp('/posts?per_page=3&_embed');
         if (posts && posts.length > 0) {
-          setHomePosts(posts);
+          const valid = posts.filter(p => {
+            const t = (p.title?.rendered || p.title || '').toLowerCase();
+            const s = (p.slug || '').toLowerCase();
+            return !t.includes('hello world') && !s.includes('hello-world') && !s.includes('test-studio');
+          });
+          setHomePosts(valid.length > 0 ? valid : posts);
         }
       } catch (err) {
         console.warn('WordPress offline, showing fallback home posts:', err);
@@ -661,12 +673,14 @@ function HomePage() {
                 With deep expertise across cloud, AI, and enterprise application engineering, our teams operate as an extension of yours — aligned to your goals, transparent in execution, relentless in delivery quality.
               </p>
 
-              {/* Stats */}
-              <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', marginBottom: '36px' }}>
+              {/* Stats: Balanced 4-column desktop / 2x2 grid on mobile */}
+              <div className="about-stats-grid" style={{ marginBottom: '36px', borderTop: '1px solid var(--border)', paddingTop: '24px' }}>
                 {STATS.map(s => (
-                  <div key={s.label}>
-                    <div className="stat-num" style={{ background: 'var(--grad-brand)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}><span data-count={s.value}>0</span>{s.suffix}</div>
-                    <div className="stat-label" style={{ color: 'var(--text-mid)' }}>{s.label}</div>
+                  <div key={s.label} style={{ minWidth: 0 }}>
+                    <div className="stat-num" style={{ background: 'var(--grad-brand)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: 'clamp(1.9rem, 2.6vw, 2.5rem)', fontWeight: 900 }}>
+                      <span data-count={s.value}>0</span>{s.suffix}
+                    </div>
+                    <div className="stat-label" style={{ color: 'var(--text-mid)', fontSize: '0.84rem', marginTop: '4px', fontWeight: 600 }}>{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -683,22 +697,49 @@ function HomePage() {
                 alt="Improx Tech software development team collaborating"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '380px', display: 'block' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(248,250,252,0.85) 0%, transparent 100%)' }} />
-              {/* floating badge */}
-              <div className="glass-card" style={{ position: 'absolute', bottom: '-20px', left: '-20px', padding: '16px 22px', borderRadius: '14px', maxWidth: '220px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--grad-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(248,250,252,0.4) 0%, transparent 100%)' }} />
+              
+              {/* Bottom ISO 27001 Badge - completely inside the frame, zero clipping */}
+              <div style={{
+                position: 'absolute',
+                bottom: '16px',
+                left: '16px',
+                padding: '14px 18px',
+                borderRadius: '12px',
+                maxWidth: '240px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                border: '1px solid var(--border)',
+                boxShadow: '0 8px 24px rgba(15, 23, 42, 0.12)',
+                backdropFilter: 'blur(12px)',
+                zIndex: 2
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+                  <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: 'var(--grad-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <i className="fa-solid fa-shield-halved" style={{ color: '#fff', fontSize: '0.8rem' }} />
                   </div>
-                  <strong style={{ fontSize: '0.85rem', color: 'var(--text-hi)' }}>ISO 27001 Certified</strong>
+                  <strong style={{ fontSize: '0.86rem', color: 'var(--text-hi)' }}>ISO 27001 Certified</strong>
                 </div>
-                <p style={{ color: 'var(--text-mid)', fontSize: '0.75rem', margin: 0 }}>Security-first across all projects.</p>
+                <p style={{ color: 'var(--text-mid)', fontSize: '0.74rem', margin: 0, lineHeight: 1.4 }}>Security-first engineering across all client platforms.</p>
               </div>
-              <div className="glass-card" style={{ position: 'absolute', top: '20px', right: '-16px', padding: '14px 18px', borderRadius: '12px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
-                  <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-hi)' }}>24/7 Support Active</span>
-                </div>
+
+              {/* Top 24/7 Support Badge - completely inside the frame */}
+              <div style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                padding: '10px 16px',
+                borderRadius: '99px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                border: '1px solid var(--border)',
+                boxShadow: '0 6px 18px rgba(15, 23, 42, 0.1)',
+                backdropFilter: 'blur(12px)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                zIndex: 2
+              }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-hi)', fontFamily: 'var(--font-head)' }}>24/7 Support Active</span>
               </div>
             </div>
           </div>
@@ -777,9 +818,9 @@ function HomePage() {
       </section>
 
       {/* ── Blog ── */}
-      <section id="blog" className="section-pad section-raised">
+      <section id="blog" style={{ padding: '80px 24px 44px', background: 'var(--bg-raised)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="reveal" style={{ marginBottom: '56px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
+          <div className="reveal active" style={{ marginBottom: '44px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <span className="eyebrow" style={{ color: 'var(--brand)' }}>Latest Insights</span>
               <h2 style={{ fontSize: 'clamp(1.9rem,3.8vw,2.9rem)', fontWeight: 800, color: 'var(--text-hi)' }}>News & Articles</h2>
@@ -787,7 +828,7 @@ function HomePage() {
             <Link to="/blog" className="btn btn-outline" style={{ fontSize: '0.88rem' }}>View All <i className="fa-solid fa-arrow-right" /></Link>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '24px' }}>
-            {homePosts.map((b, i) => {
+            {homePosts.slice(0, 3).map((b, i) => {
               const isWp = !!b.id;
               const title = isWp ? b.title?.rendered : b.title;
               const desc = isWp
@@ -800,27 +841,23 @@ function HomePage() {
                 ? new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
                 : b.date;
               const category = isWp ? 'Tech Article' : b.category;
-              const linkUrl = isWp ? `/blog/${b.id}` : '#read';
+              const linkUrl = `/blog/${b.slug || b.id || 1}`;
 
               return (
-                <article key={i} className="glass-card reveal" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+                <article key={i} className="glass-card reveal active" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ position: 'relative', height: '210px', overflow: 'hidden' }}>
                     <img src={imgUrl} alt={title} className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     <span style={{ position: 'absolute', top: '14px', left: '14px', padding: '3px 12px', background: 'var(--grad-brand)', borderRadius: '999px', fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>{category}</span>
                   </div>
-                  <div style={{ padding: '24px' }}>
+                  <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                     <span style={{ color: 'var(--brand)', fontSize: '0.76rem', fontWeight: 600 }}>{dateText}</span>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-hi)', margin: '8px 0 10px', lineHeight: 1.4 }}>{title}</h3>
                     <p style={{ color: 'var(--text-mid)', fontSize: '0.86rem', lineHeight: 1.65, marginBottom: '16px' }}>{desc}</p>
-                    {isWp ? (
+                    <div style={{ marginTop: 'auto', paddingTop: '12px' }}>
                       <Link to={linkUrl} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', textDecoration: 'none' }}>
                         Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
                       </Link>
-                    ) : (
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer' }}>
-                        Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
-                      </span>
-                    )}
+                    </div>
                   </div>
                 </article>
               );
@@ -830,10 +867,10 @@ function HomePage() {
       </section>
 
       {/* ── Contact ── */}
-      <section id="contact" className="section-pad">
+      <section id="contact" style={{ padding: "56px 24px 88px", background: "var(--bg-subtle)", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
           <div className="contact-grid">
-            <div className="reveal">
+            <div className="reveal active">
               <span className="eyebrow" style={{ color: 'var(--brand)' }}>Contact Us</span>
               <h2 style={{ fontSize: 'clamp(1.9rem,3.8vw,2.9rem)', fontWeight: 800, color: 'var(--text-hi)', marginBottom: '18px' }}>
                 Let's discuss your next{' '}

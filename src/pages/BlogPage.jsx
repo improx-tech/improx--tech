@@ -16,7 +16,14 @@ function BlogPage() {
       setError('');
       try {
         const data = await fetchFromWp('/posts?per_page=20&_embed');
-        setPosts(Array.isArray(data) ? data : [data]);
+        const rawPosts = Array.isArray(data) ? data : [data];
+        // Filter out default dummy WordPress posts like "Hello world!"
+        const cleanedPosts = rawPosts.filter(p => {
+          const t = (p.title?.rendered || (typeof p.title === 'string' ? p.title : '')).toLowerCase();
+          const s = (p.slug || '').toLowerCase();
+          return !t.includes('hello world') && !s.includes('hello-world') && !s.includes('test-studio');
+        });
+        setPosts(cleanedPosts.length > 0 ? cleanedPosts : rawPosts);
       } catch (err) {
         setError('Failed to load posts. Please try again later.');
       } finally {

@@ -9,10 +9,10 @@ const FAQ_ITEMS = [
 
 function ContactPage() {
   return (
-    <main style={{ background: 'var(--bg-base)', minHeight: '100vh', paddingTop: '80px' }}>
+    <main style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
       
       {/* ── Header ── */}
-      <section style={{ position: 'relative', padding: '120px 24px 60px', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: 'clamp(110px, 14vw, 140px) 24px clamp(40px, 6vw, 60px)', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg,rgba(248,250,252,.85) 0%,rgba(255,255,255,.6) 50%,rgba(248,250,252,.98) 100%)', zIndex: 1 }} />
         <div className="hero-blob hero-blob-1" style={{ width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%)', top: '-10%', left: '-5%' }} />
         
@@ -59,6 +59,57 @@ function ContactPage() {
                       </div>
                     </div>
                   ))}
+                </div>
+
+                {/* Social Connect Links */}
+                <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border)' }}>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-lo)', display: 'block', marginBottom: '12px' }}>
+                    Connect on Social Channels
+                  </span>
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    <a
+                      href="https://www.linkedin.com/company/40880478/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '10px 18px',
+                        borderRadius: '8px',
+                        background: 'rgba(37,99,235,0.06)',
+                        border: '1px solid rgba(37,99,235,0.18)',
+                        color: 'var(--brand)',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <i className="fa-brands fa-linkedin" style={{ fontSize: '1rem' }} /> LinkedIn
+                    </a>
+                    <a
+                      href="https://www.instagram.com/improxtech?utm_source=qr&exln=cDUyd3JtM2Fkcms2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '10px 18px',
+                        borderRadius: '8px',
+                        background: 'rgba(236,72,153,0.06)',
+                        border: '1px solid rgba(236,72,153,0.2)',
+                        color: '#DB2777',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <i className="fa-brands fa-instagram" style={{ fontSize: '1rem' }} /> Instagram
+                    </a>
+                  </div>
                 </div>
               </div>
 

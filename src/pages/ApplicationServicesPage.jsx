@@ -57,7 +57,7 @@ function ApplicationServicesPage() {
         <div className="hero-blob hero-blob-1" />
         <div className="hero-blob hero-blob-2" />
 
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '180px 24px 100px', position: 'relative', zIndex: 2, textAlign: 'center' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: 'clamp(115px, 14vw, 160px) 24px clamp(60px, 8vw, 90px)', position: 'relative', zIndex: 2, textAlign: 'center' }}>
           <span className="eyebrow reveal" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', justifyContent: 'center' }}>
             <span className="glow-dot" /> Enterprise Software Solutions
           </span>

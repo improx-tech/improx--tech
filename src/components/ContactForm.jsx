@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const FORM_API_URL = import.meta.env.VITE_CONTACT_API_URL || '/contact.php';
-const phoneRegex = /^\+91\s?[6-9]\d{9}$/;
+const phoneRegex = /^(\+?\d{1,4}[-.\s]?)?[\d\s-]{8,15}$/;
 
 function ContactForm() {
   const [state, setState] = useState({
@@ -30,8 +30,8 @@ function ContactForm() {
       return;
     }
 
-    if (!phoneRegex.test(phone)) {
-      setStatus('Phone must be in +91 9876543210 format.');
+    if (!phoneRegex.test(phone.trim())) {
+      setStatus('Please enter a valid phone number (e.g. +91 91564 70600).');
       setStatusType('error');
       return;
     }
@@ -77,42 +77,48 @@ function ContactForm() {
   };
 
   return (
-    <form className="contact-form card reveal" onSubmit={handleSubmit} noValidate>
+    <form className="contact-form card reveal active" onSubmit={handleSubmit} noValidate>
+      <div className="form-row">
+        <label>
+          Full Name
+          <input type="text" name="name" value={state.name} onChange={handleChange} placeholder="e.g. John Doe" required />
+        </label>
+        <label>
+          Work Email
+          <input type="email" name="email" value={state.email} onChange={handleChange} placeholder="name@company.com" required />
+        </label>
+      </div>
+
+      <div className="form-row">
+        <label>
+          Service Required
+          <select name="service" value={state.service} onChange={handleChange} required>
+            <option value="">Select a practice</option>
+            <option value="Application Services">Application Services</option>
+            <option value="Product Engineering">Product Engineering</option>
+            <option value="Technology Services">Technology Services</option>
+            <option value="AI & Business Intelligence">AI & Business Intelligence</option>
+          </select>
+        </label>
+        <label>
+          Phone Number
+          <input
+            type="tel"
+            name="phone"
+            value={state.phone}
+            onChange={handleChange}
+            placeholder="+91 91564 70600"
+            required
+          />
+        </label>
+      </div>
+
       <label>
-        Name
-        <input type="text" name="name" value={state.name} onChange={handleChange} required />
+        Project Scope & Message
+        <textarea name="message" value={state.message} onChange={handleChange} rows="4" placeholder="Briefly describe your requirements or timeline..." required />
       </label>
-      <label>
-        Email
-        <input type="email" name="email" value={state.email} onChange={handleChange} required />
-      </label>
-      <label>
-        Service
-        <select name="service" value={state.service} onChange={handleChange} required>
-          <option value="">Select service</option>
-          <option value="Product Engineering">Product Engineering</option>
-          <option value="Application Services">Application Services</option>
-          <option value="Technology Services">Technology Services</option>
-          <option value="AI & BI">AI & BI</option>
-        </select>
-      </label>
-      <label>
-        Phone
-        <input
-          type="tel"
-          name="phone"
-          value={state.phone}
-          onChange={handleChange}
-          placeholder="+91 9876543210"
-          required
-        />
-      </label>
-      <label>
-        Message
-        <textarea name="message" value={state.message} onChange={handleChange} rows="5" required />
-      </label>
-      <button type="submit" className="btn btn-primary" disabled={submitting}>
-        {submitting ? 'Sending...' : 'Send Message'}
+      <button type="submit" className="btn btn-primary" disabled={submitting} style={{ width: '100%', justifyContent: 'center', padding: '13px 28px' }}>
+        {submitting ? 'Sending...' : 'Send Message'} <i className="fa-solid fa-paper-plane" style={{ fontSize: '0.82rem', marginLeft: '6px' }} />
       </button>
       <p className={`form-status${statusType ? ` is-${statusType}` : ''}`} aria-live="polite">
         {status}

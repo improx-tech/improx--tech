@@ -28,7 +28,7 @@ export default function TechnologyServicesPage() {
           <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1920&q=80" alt="" style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', opacity:.1 }} />
         </div>
         <div className="hero-blob hero-blob-1" /><div className="hero-blob hero-blob-2" />
-        <div style={{ maxWidth:'1240px', margin:'0 auto', padding:'180px 24px 100px', position:'relative', zIndex:2, width:'100%', textAlign:'center' }}>
+        <div style={{ maxWidth:'1240px', margin:'0 auto', padding:'clamp(115px, 14vw, 160px) 24px clamp(60px, 8vw, 90px)', position:'relative', zIndex:2, width:'100%', textAlign:'center' }}>
           <span className="eyebrow reveal" style={{ justifyContent:'center' }}><span className="glow-dot" /> Cloud · Security · Infrastructure</span>
           <h1 className="reveal" style={{ fontSize:'clamp(2.8rem,6vw,5rem)', fontWeight:900, lineHeight:1.06, color:'var(--text-hi)', letterSpacing:'-0.03em', marginBottom:'22px' }}>
             Technology <span style={{ background:'var(--grad-brand)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Services</span>

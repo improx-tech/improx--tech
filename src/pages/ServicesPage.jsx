@@ -37,10 +37,10 @@ const practices = [
 
 function ServicesPage() {
   return (
-    <main style={{ background: 'var(--bg-base)', minHeight: '100vh', paddingTop: '80px' }}>
+    <main style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
       
       {/* ── Hero ── */}
-      <section style={{ position: 'relative', padding: '120px 24px 60px', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: 'clamp(115px, 14vw, 150px) 24px clamp(40px, 6vw, 60px)', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg,rgba(248,250,252,.85) 0%,rgba(255,255,255,.6) 50%,rgba(248,250,252,.98) 100%)', zIndex: 1 }} />
         <div className="hero-blob hero-blob-1" style={{ width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%)', top: '-10%', right: '-5%' }} />
         
@@ -59,9 +59,9 @@ function ServicesPage() {
       </section>
 
       {/* ── Capabilities Grid ── */}
-      <section className="section-pad-sm" style={{ paddingBottom: '120px' }}>
+      <section className="section-pad-sm" style={{ paddingBottom: '100px' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '28px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '28px' }}>
             {practices.map((p, idx) => (
               <div key={idx} className="glass-card reveal active" style={{ display: 'flex', flexDirection: 'column', gap: '20px', padding: '36px 30px', background: 'var(--bg-card)', border: '1px solid var(--border)', transitionDelay: `${idx * 0.1}s` }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>

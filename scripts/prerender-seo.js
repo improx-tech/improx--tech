@@ -5,6 +5,7 @@ import { SEO_ROUTES, BASE_URL } from '../src/utils/seoData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.resolve(__dirname, '../dist');
+const publicDir = path.resolve(__dirname, '../public');
 
 if (!fs.existsSync(distDir)) {
   console.error('Error: dist directory does not exist. Run "vite build" first.');
@@ -93,6 +94,19 @@ for (const [route, meta] of Object.entries(SEO_ROUTES)) {
     fs.writeFileSync(targetFile, html, 'utf8');
   }
   count++;
+}
+
+// 7. Ensure robots.txt & sitemap.xml are synced to dist
+const sitemapSource = path.join(publicDir, 'sitemap.xml');
+const robotsSource = path.join(publicDir, 'robots.txt');
+
+if (fs.existsSync(sitemapSource)) {
+  fs.copyFileSync(sitemapSource, path.join(distDir, 'sitemap.xml'));
+  console.log('Synced sitemap.xml to dist/');
+}
+if (fs.existsSync(robotsSource)) {
+  fs.copyFileSync(robotsSource, path.join(distDir, 'robots.txt'));
+  console.log('Synced robots.txt to dist/');
 }
 
 console.log(`Successfully generated SEO HTML files for all ${count} routes in dist/!`);
