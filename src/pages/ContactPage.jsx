@@ -60,6 +60,57 @@ function ContactPage() {
                     </div>
                   ))}
                 </div>
+
+                {/* Social Connect Links */}
+                <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid var(--border)' }}>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-lo)', display: 'block', marginBottom: '12px' }}>
+                    Connect on Social Channels
+                  </span>
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    <a
+                      href="https://www.linkedin.com/company/40880478/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '10px 18px',
+                        borderRadius: '8px',
+                        background: 'rgba(37,99,235,0.06)',
+                        border: '1px solid rgba(37,99,235,0.18)',
+                        color: 'var(--brand)',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <i className="fa-brands fa-linkedin" style={{ fontSize: '1rem' }} /> LinkedIn
+                    </a>
+                    <a
+                      href="https://www.instagram.com/improxtech?utm_source=qr&exln=cDUyd3JtM2Fkcms2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        padding: '10px 18px',
+                        borderRadius: '8px',
+                        background: 'rgba(236,72,153,0.06)',
+                        border: '1px solid rgba(236,72,153,0.2)',
+                        color: '#DB2777',
+                        fontSize: '0.88rem',
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <i className="fa-brands fa-instagram" style={{ fontSize: '1rem' }} /> Instagram
+                    </a>
+                  </div>
+                </div>
               </div>
 
               {/* FAQ Section */}

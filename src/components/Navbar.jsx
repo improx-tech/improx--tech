@@ -456,12 +456,21 @@ export default function Navbar() {
 
           {/* Mobile Drawer Footer Contacts */}
           <div className="mobile-drawer-footer">
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '16px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
               <a href="tel:+919156470600" className="mobile-contact-pill">
                 <i className="fa-solid fa-phone" style={{ color: 'var(--brand)' }} /> +91 91564 70600
               </a>
               <a href="mailto:enquiry@improxgroup.com" className="mobile-contact-pill">
                 <i className="fa-solid fa-envelope" style={{ color: 'var(--brand)' }} /> enquiry@improxgroup.com
+              </a>
+            </div>
+
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+              <a href="https://www.linkedin.com/company/40880478/" target="_blank" rel="noopener noreferrer" className="mobile-contact-pill" style={{ flex: 1, justifyContent: 'center', gap: '6px' }}>
+                <i className="fa-brands fa-linkedin-in" style={{ color: 'var(--brand)' }} /> LinkedIn
+              </a>
+              <a href="https://www.instagram.com/improxtech?utm_source=qr&exln=cDUyd3JtM2Fkcms2" target="_blank" rel="noopener noreferrer" className="mobile-contact-pill" style={{ flex: 1, justifyContent: 'center', gap: '6px' }}>
+                <i className="fa-brands fa-instagram" style={{ color: '#DB2777' }} /> Instagram
               </a>
             </div>
 

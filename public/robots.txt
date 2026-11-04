@@ -1,0 +1,11 @@
+# robots.txt for Improx Tech
+# https://improxtech.com
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /contact.php
+Disallow: /api_proxy.php
+
+# Sitemap
+Sitemap: https://improxtech.com/sitemap.xml
