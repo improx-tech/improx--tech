@@ -142,6 +142,7 @@ function ServiceHoverCard({ service }) {
   return (
     <div 
       className="glass-card reveal" 
+      onClick={() => setHovered(h => !h)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{ 
@@ -150,6 +151,7 @@ function ServiceHoverCard({ service }) {
         flexDirection: 'column', 
         gap: '16px', 
         minHeight: '380px',
+        cursor: 'pointer',
         position: 'relative',
         overflow: 'hidden',
         transition: 'transform 0.3s ease, border-color 0.3s ease',
@@ -184,7 +186,7 @@ function ServiceHoverCard({ service }) {
             {service.desc}
           </p>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', marginTop: 'auto' }}>
-            Hover to view capabilities <i className="fa-solid fa-chevron-down" style={{ fontSize: '0.7rem' }} />
+            Hover / tap to view capabilities <i className="fa-solid fa-chevron-down" style={{ fontSize: '0.7rem' }} />
           </span>
         </div>
 
@@ -375,8 +377,9 @@ function Hero() {
         </div>
 
         {/* ── DYNAMIC SERVICES CONSTELLATION MAP ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', alignItems: 'center', width: '100%', maxWidth: '100%', overflow: 'hidden' }}>
           
+          <div className="constellation-wrapper">
           <div style={{ 
             position: 'relative', 
             width: '380px', 
@@ -535,6 +538,7 @@ function Hero() {
                 </button>
               );
             })}
+          </div>
           </div>
 
           {/* Active Node Detail Card */}

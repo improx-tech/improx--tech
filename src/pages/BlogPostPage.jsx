@@ -47,8 +47,8 @@ function BlogPostPage() {
     'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80';
 
   return (
-    <div style={{ background: 'var(--bg-base)', minHeight: '100vh', paddingTop: '130px', paddingBottom: '96px' }}>
-      <main className="post-wrapper" style={{ padding: '0 24px', maxWidth: '1000px', margin: '0 auto' }}>
+    <div style={{ background: 'var(--bg-base)', minHeight: '100vh', paddingTop: 'clamp(90px, 12vw, 120px)', paddingBottom: '64px' }}>
+      <main className="post-wrapper" style={{ padding: '0 24px', maxWidth: '960px', margin: '0 auto' }}>
         {loading && (
           <div className="loader-container">
             <div className="loader" aria-label="Loading" />
@@ -142,11 +142,11 @@ function BlogPostPage() {
             />
 
             {/* Bottom Actions Row */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '48px', borderTop: '1px solid var(--border)', paddingTop: '32px' }}>
-              <Link to="/blog" className="btn btn-secondary" style={{ padding: '12px 28px', borderRadius: '99px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', marginTop: '48px', borderTop: '1px solid var(--border)', paddingTop: '32px' }}>
+              <Link to="/blog" className="btn btn-secondary" style={{ padding: '12px 26px', borderRadius: '99px' }}>
                 ← All Articles
               </Link>
-              <Link to="/contact" className="btn btn-primary" style={{ padding: '12px 28px', borderRadius: '99px' }}>
+              <Link to="/contact" className="btn btn-primary" style={{ padding: '12px 26px', borderRadius: '99px' }}>
                 Request Consultation <i className="fa-solid fa-arrow-right" />
               </Link>
             </div>

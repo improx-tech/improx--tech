@@ -6,8 +6,8 @@ const cols = [
     links: [
       { label: 'Product Engineering',    to: '/services/product-engineering' },
       { label: 'Application Services',   to: '/services/application-services' },
-      { label: 'Technology Services',    to: '/#services' },
-      { label: 'AI & Business Intel.',   to: '/#services' },
+      { label: 'Technology Services',    to: '/services/technology-services' },
+      { label: 'AI & Business Intel.',   to: '/services/ai-ml' },
     ],
   },
   {

@@ -58,7 +58,7 @@ function ServiceSubpageLayout({ hero, overview, features, benefits, process, use
         <div className="hero-blob hero-blob-1" style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)' }} />
         <div className="hero-blob hero-blob-2" style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%)' }} />
 
-        <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '180px 24px 100px', position: 'relative', zIndex: 2, width: '100%' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', padding: 'clamp(115px, 14vw, 160px) 24px clamp(60px, 8vw, 90px)', position: 'relative', zIndex: 2, width: '100%' }}>
           {/* Breadcrumb */}
           <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.82rem', color: 'var(--text-mid)', marginBottom: '28px', flexWrap: 'wrap' }}>
             <Link to="/" style={{ color: 'var(--text-mid)' }}>Home</Link>
@@ -123,7 +123,7 @@ function ServiceSubpageLayout({ hero, overview, features, benefits, process, use
 
       {/* ── Benefits ──────────────────────────────── */}
       <section className="section-pad section-raised" style={{ borderBottom: '1px solid var(--border)', background: 'var(--bg-subtle)' }}>
-        <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '72px', alignItems: 'center' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'clamp(32px, 5vw, 64px)', alignItems: 'center' }}>
           <div className="reveal">
             <span className="eyebrow" style={{ color: 'var(--brand)' }}>Benefits</span>
             <h2 style={{ fontSize: 'clamp(1.8rem,3.8vw,2.8rem)', fontWeight: 800, color: 'var(--text-hi)', marginBottom: '36px' }}>Why It Matters for Your Business</h2>

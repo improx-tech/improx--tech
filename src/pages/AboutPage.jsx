@@ -23,10 +23,10 @@ const timeline = [
 
 function AboutPage() {
   return (
-    <main style={{ background: 'var(--bg-base)', minHeight: '100vh', paddingTop: '80px' }}>
+    <main style={{ background: 'var(--bg-base)', minHeight: '100vh' }}>
       
       {/* ── Hero Section ── */}
-      <section style={{ position: 'relative', padding: '120px 24px 80px', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', padding: 'clamp(110px, 14vw, 140px) 24px clamp(50px, 7vw, 70px)', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(160deg,rgba(248,250,252,.85) 0%,rgba(255,255,255,.6) 50%,rgba(248,250,252,.98) 100%)', zIndex: 1 }} />
         <div className="hero-blob hero-blob-1" style={{ width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(37,99,235,0.06) 0%, transparent 70%)', top: '-10%', left: '-5%' }} />
         
