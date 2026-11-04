@@ -1,216 +1,274 @@
 /**
  * Comprehensive SEO Metadata Dictionary for Improx Tech
- * Defines Title, Meta Description, Meta Keywords, and Canonical URL for every page route.
+ * Format: URL route -> Title, Meta Description, Primary & Secondary Keywords
  */
 
 export const BASE_URL = 'https://improxtech.com';
 
 export const DEFAULT_SEO = {
-  title: 'Enterprise IT & AI Solutions | Improx Tech',
-  description: 'Improx Tech delivers enterprise IT, custom software, cloud solutions, AI, application development, product engineering, cybersecurity and digital transformation services for scalable business growth.',
-  keywords: 'enterprise IT solutions, enterprise AI solutions, custom software development, cloud solutions, product engineering, cybersecurity services, digital transformation, IT consulting, software company',
+  title: 'Digital Engineering Services for Enterprises | Improx Tech',
+  description: 'Explore digital engineering services from Improx Tech, including AI development, cloud engineering and technology consulting to modernize enterprise systems.',
+  keywords: 'digital engineering services, AI development services, Cloud engineering services, Technology consulting services',
   canonicalUrl: BASE_URL,
   ogImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
 };
 
 export const SEO_ROUTES = {
-  // ── Core Pages ───────────────────────────────────────────────
+  // 1. Home
   '/': {
-    title: 'Enterprise IT & AI Solutions | Improx Tech',
-    description: 'Improx Tech delivers enterprise IT, custom software, cloud solutions, AI, application development, product engineering, cybersecurity and digital transformation services for scalable business growth.',
-    keywords: 'enterprise IT solutions, enterprise AI solutions, custom software development, cloud solutions, product engineering, cybersecurity services, digital transformation, IT consulting',
+    title: 'Digital Engineering Services for Enterprises | Improx Tech',
+    description: 'Explore digital engineering services from Improx Tech, including AI development, cloud engineering and technology consulting to modernize enterprise systems.',
+    keywords: 'digital engineering services, AI development services, Cloud engineering services, Technology consulting services',
   },
+
+  // 2. Application Services Hub
+  '/services/application-services': {
+    title: 'Application Development Services for Business | Improx Tech',
+    description: 'Explore application development services from Improx Tech for custom applications, enterprise systems, SaaS, mobile, web, APIs and modernization at scale.',
+    keywords: 'app development, Application development services, application modernization services, custom application, application engineering services',
+  },
+
+  // 3. Custom Software Development
+  '/services/application-services/custom-software': {
+    title: 'Custom Software Development Services | Improx Tech',
+    description: 'Build custom software around your business needs. Improx Tech designs and develops secure, scalable applications, integrations and enterprise solutions.',
+    keywords: 'custom software development services, custom software development company, software development company',
+  },
+
+  // 4. Mobile App Development
+  '/services/application-services/mobile-app-development': {
+    title: 'Mobile App Development Services for Business | Improx Tech',
+    description: 'Launch reliable iOS and Android apps with Improx Tech. We deliver custom mobile app development for enterprise workflows, customer experiences and growth.',
+    keywords: 'Mobile app development services, Custom mobile app development, ios app development services, Android app development services, Enterprise mobile app development',
+  },
+
+  // 5. API Development
+  '/services/application-services/api-development': {
+    title: 'API Development Services for Enterprises | Improx Tech',
+    description: 'Connect products and systems with secure, scalable APIs. Improx Tech delivers REST, GraphQL and gRPC API design, development, testing and documentation.',
+    keywords: 'API development services, api development, api development company',
+  },
+
+  // 6. Maintenance & Support
+  '/services/application-services/maintenance-support': {
+    title: 'Application Maintenance & Support Services | Improx Tech',
+    description: "Keep business-critical applications reliable with proactive monitoring, software maintenance and SLA-backed support from Improx Tech's engineering team.",
+    keywords: 'Application maintenance and support, software maintenance services, application managed services',
+  },
+
+  // 7. Enterprise Applications
+  '/services/application-services/enterprise-applications': {
+    title: 'Enterprise Application Development Services | Improx Tech',
+    description: 'Modernise business operations with enterprise application development from Improx Tech. Build secure, scalable systems tailored to complex workflows at scale.',
+    keywords: 'Enterprise application development services, enterprise software solutions, enterprise business applications',
+  },
+
+  // 8. Web Applications
+  '/services/application-services/web-applications': {
+    title: 'Web Application Development Services | Improx Tech',
+    description: 'Build fast, accessible web applications with Improx Tech. Our team delivers custom web platforms, progressive web apps and scalable enterprise experiences.',
+    keywords: 'web application development services, custom web application development, progressive web app development',
+  },
+
+  // 9. System Integration
+  '/services/application-services/system-integration': {
+    title: 'Enterprise Application Integration Services | Improx Tech',
+    description: 'Connect ERP, CRM and business platforms with enterprise application integration from Improx Tech. Unify data flows, automate handoffs and reduce silos.',
+    keywords: 'enterprise application integration, system integration services, application integration services, system integration consulting',
+  },
+
+  // 10. SaaS Development
+  '/services/application-services/saas-development': {
+    title: 'Enterprise SaaS Development Services | Improx Tech',
+    description: 'Build and scale subscription software with Improx Tech. Our SaaS development covers multi-tenant architecture, billing, identity, analytics and cloud delivery.',
+    keywords: 'saas development services, saas application development, saas product development, custom saas development',
+  },
+
+  // 11. Cloud Applications
+  '/services/application-services/cloud-applications': {
+    title: 'Cloud Application Development Services | Improx Tech',
+    description: 'Create secure, scalable cloud applications with Improx Tech. Build cloud-native software with resilient architecture, integrations and deployment workflows.',
+    keywords: 'cloud application development services, cloud native application development, cloud app development, cloud native software development',
+  },
+
+  // 12. Legacy Modernization
+  '/services/application-services/legacy-modernization': {
+    title: 'Legacy Application Modernization Services | Improx Tech',
+    description: 'Modernise legacy applications without disrupting operations. Improx Tech helps enterprises migrate data, reduce technical debt and move to cloud-native systems.',
+    keywords: 'legacy modernization, legacy application modernization services, legacy system modernization, legacy software modernization, mainframe modernization',
+  },
+
+  // 13. Product Strategy
+  '/services/product-engineering/product-strategy': {
+    title: 'Digital Product Strategy Consulting Services | Improx Tech',
+    description: 'Turn product ideas into roadmaps with Improx Tech. Align user needs, business goals, technical feasibility and delivery priorities before development.',
+    keywords: 'digital product strategy, software product strategy, product strategy services, technology product strategy',
+  },
+
+  // 14. Rapid Prototyping
+  '/services/product-engineering/rapid-prototyping': {
+    title: 'Rapid Prototyping Services for Enterprises | Improx Tech',
+    description: 'Validate ideas before full development with rapid prototyping from Improx Tech. Test concepts, user flows and product assumptions quickly through prototypes.',
+    keywords: 'rapid prototyping, rapid prototyping services, software prototyping services, prototyping services, digital product prototyping',
+  },
+
+  // 15. DevOps & CI/CD
+  '/services/product-engineering/devops': {
+    title: 'DevOps Consulting Services for Teams | Improx Tech',
+    description: 'Improve software delivery with DevOps consulting from Improx Tech. Automate CI/CD pipelines, streamline releases and strengthen engineering team collaboration.',
+    keywords: 'devops consulting services, devops implementation services, devops automation services, devops engineering services, cloud devops services',
+  },
+
+  // 16. UX / UI Design
+  '/services/product-engineering/ux-design': {
+    title: 'UX/UI Design Services for Digital Products | Improx Tech',
+    description: 'Create intuitive user experiences with Improx Tech. Our UX/UI design services combine user research, interface design and product usability for business goals.',
+    keywords: 'ux ui design services, ux design services, ui design services, product design services, user experience consulting',
+  },
+
+  // 17. QA & Testing
+  '/services/product-engineering/qa-testing': {
+    title: 'Software Testing Services & QA Automation | Improx Tech',
+    description: 'Improve release quality with software testing from Improx Tech. Automate QA, validate performance and security, and catch defects across the delivery lifecycle.',
+    keywords: 'software testing services, qa automation services, automated software testing, performance testing services, software quality engineering',
+  },
+
+  // 18. Open Source Engineering
+  '/services/product-engineering/open-source': {
+    title: 'Open Source Software Development Services | Improx Tech',
+    description: 'Build, customise and integrate open source software with Improx Tech. Get engineering support for open source platforms, tools and enterprise technology needs.',
+    keywords: 'open source software development, open source software consulting',
+  },
+
+  // 19. Cloud Migration
+  '/services/technology-services/cloud-migration': {
+    title: 'Cloud Migration Services for Enterprises | Improx Tech',
+    description: 'Move workloads to the cloud with a clear migration strategy. Improx Tech helps assess, plan and execute enterprise cloud migration with continuity in mind.',
+    keywords: 'cloud migration services, cloud migration strategy, enterprise cloud migration, cloud migration consulting, application cloud migration',
+  },
+
+  // 20. Data Engineering
+  '/services/technology-services/data-engineering': {
+    title: 'Data Engineering Services for Enterprises | Improx Tech',
+    description: 'Build data foundations with Improx Tech. Develop data platforms and pipelines that connect sources, transform information and support analytics at scale.',
+    keywords: 'data engineering services, Data platform development, data pipeline development',
+  },
+
+  // 21. Infrastructure Management
+  '/services/technology-services/infrastructure': {
+    title: 'IT Infrastructure Management Services | Improx Tech',
+    description: "Improve technology reliability with Improx Tech's IT infrastructure management. Monitor systems, manage cloud infrastructure and support resilient operations.",
+    keywords: 'it infrastructure management services, cloud infrastructure management, infrastructure monitoring services, it infrastructure consulting',
+  },
+
+  // 22. DevSecOps
+  '/services/technology-services/devsecops': {
+    title: 'DevSecOps Services for Secure Delivery | Improx Tech',
+    description: 'Integrate security into software delivery with Improx Tech. Implement DevSecOps practices, automate checks and strengthen protection across CI/CD pipelines.',
+    keywords: 'devsecops services, devsecops consulting, devsecops implementation, devsecops automation',
+  },
+
+  // 23. Cybersecurity
+  '/services/technology-services/cybersecurity': {
+    title: 'Enterprise Cybersecurity Consulting Services | Improx Tech',
+    description: 'Strengthen your security posture with Improx Tech. Explore enterprise cybersecurity and cloud security consulting to assess risks and protect critical systems.',
+    keywords: 'cybersecurity consulting services, cloud security consulting, enterprise cybersecurity services',
+  },
+
+  // 24. IoT Solutions
+  '/services/technology-services/iot': {
+    title: 'IoT Development Services for Business | Improx Tech',
+    description: 'Connect devices, platforms and data with IoT development from Improx Tech. Build industrial IoT solutions for monitoring, integration and business automation.',
+    keywords: 'iot development services, enterprise iot solutions, industrial iot development',
+  },
+
+  // 25. Generative AI
+  '/services/ai-ml/generative-ai': {
+    title: 'Enterprise Generative AI Development Services | Improx Tech',
+    description: 'Apply generative AI to enterprise workflows with Improx Tech. Explore AI development, consulting and solutions that support knowledge work and automation.',
+    keywords: 'generative ai development services, enterprise generative ai solutions, generative ai consulting',
+  },
+
+  // 26. Business Intelligence
+  '/services/ai-ml/business-intelligence': {
+    title: 'Business Intelligence Services for Enterprises | Improx Tech',
+    description: 'Turn business data into useful insight with Improx Tech. Our BI services support data integration, analytics, reporting and enterprise decision-making.',
+    keywords: 'business intelligence services, business intelligence consulting, enterprise business intelligence, business analytics solutions',
+  },
+
+  // 27. Data Visualisation
+  '/services/ai-ml/data-visualisation': {
+    title: 'Data Visualization & Dashboard Services | Improx Tech',
+    description: 'Make complex information easier to understand with Improx Tech. Build interactive data visualizations and dashboards for clear business reporting and decisions.',
+    keywords: 'data visualization services, data visualization consulting, data dashboard design, business data visualization',
+  },
+
+  // 28. Machine Learning
+  '/services/ai-ml/machine-learning': {
+    title: 'Machine Learning Development Services | Improx Tech',
+    description: 'Develop machine learning solutions with Improx Tech. Build custom ML models, apply predictive techniques and integrate machine learning into business workflows.',
+    keywords: 'machine learning development services, machine learning consulting, custom machine learning solutions, ml model development, machine learning implementation',
+  },
+
+  // 29. NLP & Automation
+  '/services/ai-ml/nlp-automation': {
+    title: 'Natural Language Processing Services | Improx Tech',
+    description: 'Automate language-heavy workflows with Improx Tech. Apply NLP to text analysis, document processing and intelligent automation across business operations.',
+    keywords: 'natural language processing services, nlp development services',
+  },
+
+  // 30. Predictive Analytics
+  '/services/ai-ml/predictive-analytics': {
+    title: 'Predictive Analytics Services for Business | Improx Tech',
+    description: 'Use data to anticipate trends and plan with confidence. Improx Tech delivers predictive analytics and modeling services for better business decisions.',
+    keywords: 'predictive analytics services, predictive analytics consulting, Predictive modeling services',
+  },
+
+  // 31. About
   '/about': {
-    title: 'About Improx Tech Solutions | Improx Tech',
-    description: 'Learn about Improx Technology and our technology solutions, AI services, data analytics, automation, software development, and digital transformation expertise.',
-    keywords: 'about Improx Tech, Improx Technology company, enterprise IT consulting, software engineering firm, digital transformation partner, IT engineering team, tech innovators',
+    title: 'Digital Engineering Services for Enterprises | Improx Tech',
+    description: 'Explore digital engineering services from Improx Tech, including AI development, cloud engineering and technology consulting to modernize enterprise systems.',
+    keywords: 'digital engineering services, technology consulting services, software engineering company, enterprise IT solutions',
   },
+
+  // 32. Blog
+  '/blog': {
+    title: 'Technology Insights & Engineering Blog | Improx Tech',
+    description: "Read Improx Tech insights on software engineering, cloud, AI, APIs, DevOps and cybersecurity, with practical guides for today's enterprise technology teams.",
+    keywords: "technology insights, software engineering blog, cloud engineering insights, enterprise AI blog, DevOps guides, cybersecurity articles",
+  },
+
+  // 33. Careers
+  '/careers': {
+    title: 'Careers at Improx Tech | Technology & Engineering Roles',
+    description: 'Explore careers at Improx Tech across software engineering, product development, cloud and AI. View role information and learn about opportunities on our team.',
+    keywords: 'careers at Improx Tech, software engineering jobs, tech careers, cloud developer hiring, AI engineering roles, IT jobs Pune',
+  },
+
+  // 34. Category Landing Hubs
   '/services': {
     title: 'Enterprise Technology & AI Services | Improx Tech',
-    description: 'Explore Improx Tech full suite of enterprise services: product engineering, application services, cloud migration, cybersecurity, and AI solutions.',
-    keywords: 'enterprise IT services, software development services, cloud technology services, AI ML services, product engineering services, IT consulting, enterprise technology solutions',
+    description: 'Explore digital engineering and technology services from Improx Tech: product engineering, application development, cloud solutions, and enterprise AI.',
+    keywords: 'digital engineering services, application development services, cloud migration services, enterprise AI development',
   },
-  '/blog': {
-    title: 'Technology & AI Insights Blog | Improx Tech',
-    description: 'Explore insights on AI, machine learning, data analytics, automation, software development, cybersecurity, digital transformation, and emerging technologies.',
-    keywords: 'technology blog, AI articles, software engineering insights, cloud computing blog, cybersecurity trends, digital transformation articles, tech insights',
-  },
-  '/contact': {
-    title: 'Contact Improx Tech | Enterprise IT Consultation',
-    description: 'Get in touch with Improx Tech architects and engineers. Schedule a technical discovery consultation for your software, cloud, or AI initiatives.',
-    keywords: 'contact Improx Tech, hire software developers, software engineering inquiry, technology consultation, enterprise IT quote, contact IT consultants, hire AI engineers',
-  },
-  '/careers': {
-    title: 'Careers at Improx Technology | Improx Tech',
-    description: 'Explore career opportunities at Improx Technology and join a team working on AI, technology solutions, software development, data analytics, automation, and digital innovation.',
-    keywords: 'careers at Improx Technology, software developer jobs, IT careers, tech jobs Pune, AI engineer careers, cloud engineer hiring, Improx Tech jobs, tech vacancies',
-  },
-
-  // ── Application Services ─────────────────────────────────────
-  '/services/application-services': {
-    title: 'Application Development Services | Improx Tech',
-    description: 'Build scalable enterprise applications with custom software development, mobile apps, web applications, SaaS, API development, cloud applications, system integration and application modernization.',
-    keywords: 'application development services, custom software, enterprise applications, mobile app development, web applications, SaaS development, API development, cloud applications, legacy modernization',
-  },
-  '/services/application-services/custom-software': {
-    title: 'Custom Software Development | Improx Tech',
-    description: 'Get custom software development solutions for enterprise applications, business automation, scalable platforms and digital transformation, built around your unique business requirements and workflows.',
-    keywords: 'custom software development, bespoke software solutions, enterprise application development, business automation software, scalable software platforms, custom software engineering',
-  },
-  '/services/application-services/mobile-app-development': {
-    title: 'Mobile App Development | Improx Tech',
-    description: 'Develop secure, scalable mobile applications for iOS and Android with modern technology, intuitive UX, robust backend integration and enterprise-grade performance.',
-    keywords: 'mobile app development, iOS app development, Android app development, cross-platform apps, React Native, enterprise mobile apps, mobile UX UI, custom mobile software',
-  },
-  '/services/application-services/api-development': {
-    title: 'API Development Services | Improx Tech',
-    description: 'Build secure, scalable and high-performance APIs with REST, GraphQL and gRPC, including API integration, authentication, documentation, versioning and lifecycle management.',
-    keywords: 'API development services, REST API development, GraphQL APIs, gRPC services, API integration, microservices API, API lifecycle management, secure APIs',
-  },
-  '/services/application-services/maintenance-support': {
-    title: 'Application Maintenance Support | Improx Tech',
-    description: 'Keep business applications secure and reliable with 24/7 application maintenance, proactive monitoring, technical support, performance optimization, security updates and SLA-backed incident response.',
-    keywords: 'application maintenance support, 24/7 application support, software maintenance, proactive monitoring, performance optimization, security patching, SLA incident support',
-  },
-  '/services/application-services/enterprise-applications': {
-    title: 'Enterprise Application Solutions | Improx Tech',
-    description: 'Build scalable enterprise applications that connect business processes, improve productivity and support digital transformation with secure, reliable and integrated technology solutions.',
-    keywords: 'enterprise application solutions, enterprise software development, ERP development, CRM systems, business process automation, enterprise software integration, scalable enterprise systems',
-  },
-  '/services/application-services/web-applications': {
-    title: 'Web Application Development | Improx Tech',
-    description: 'Build high-performance web applications with modern frameworks, responsive design, secure architecture, SEO-friendly development, accessibility, performance optimization and scalable enterprise technology.',
-    keywords: 'web application development, enterprise web apps, custom web development, React web applications, responsive web apps, cloud web applications, progressive web apps',
-  },
-  '/services/application-services/system-integration': {
-    title: 'Enterprise System Integration | Improx Tech',
-    description: 'Connect enterprise applications, APIs, databases and business systems with secure system integration, real-time data flows, ETL pipelines, automation and reliable integration architecture.',
-    keywords: 'enterprise system integration, system integration services, API integration, ETL pipelines, real-time data integration, database integration, enterprise software integration',
-  },
-  '/services/application-services/saas-development': {
-    title: 'SaaS Development Services | Improx Tech',
-    description: 'Build scalable SaaS platforms with multi-tenant architecture, subscription billing, cloud infrastructure, secure authentication, usage analytics, continuous deployment and enterprise-ready features.',
-    keywords: 'SaaS development services, multi-tenant SaaS architecture, SaaS platform development, cloud SaaS, subscription software development, SaaS engineering, microservices SaaS',
-  },
-  '/services/application-services/cloud-applications': {
-    title: 'Cloud Application Development | Improx Tech',
-    description: 'Develop scalable cloud applications using modern architectures, secure infrastructure, cloud-native technologies, automation and performance-focused solutions designed for enterprise workloads.',
-    keywords: 'cloud application development, cloud-native apps, AWS cloud applications, Azure apps, microservices, containerized apps, serverless applications, enterprise cloud development',
-  },
-  '/services/application-services/legacy-modernization': {
-    title: 'Legacy System Modernization | Improx Tech',
-    description: 'Modernize legacy applications with cloud-native architecture, incremental migration, system integration, application refactoring and secure modernization strategies that reduce technical debt and business disruption.',
-    keywords: 'legacy system modernization, legacy application modernization, legacy migration, software refactoring, cloud modernization, technical debt reduction, application uplift',
-  },
-
-  // ── Product Engineering ──────────────────────────────────────
   '/services/product-engineering': {
-    title: 'Product Engineering Services | Improx Tech',
-    description: 'End-to-end product engineering from product strategy and UX prototyping to automated QA and continuous DevOps delivery for scalable enterprise digital products.',
-    keywords: 'product engineering services, digital product development, product engineering consulting, full cycle product development, software engineering services, agile product squads',
+    title: 'Product Engineering Services for Enterprises | Improx Tech',
+    description: 'End-to-end product engineering from product strategy and UX prototyping to automated QA and continuous DevOps delivery for scalable enterprise products.',
+    keywords: 'product engineering services, digital product development, rapid prototyping services, devops consulting services, ux ui design services',
   },
-  '/services/product-engineering/product-strategy': {
-    title: 'Digital Product Strategy | Improx Tech',
-    description: 'Define successful digital products with product strategy, market analysis, user research, technology planning, product roadmaps and business-focused product engineering.',
-    keywords: 'digital product strategy, product roadmapping, product discovery, market analysis, user research, MVP planning, product engineering strategy, technology planning',
-  },
-  '/services/product-engineering/rapid-prototyping': {
-    title: 'Rapid Product Prototyping | Improx Tech',
-    description: 'Turn ideas into functional prototypes quickly with rapid prototyping, UX design, validation, product engineering and iterative development to accelerate digital product launches.',
-    keywords: 'rapid product prototyping, interactive prototypes, UX prototyping, MVP prototyping, proof of concept development, rapid software validation, design sprint prototypes',
-  },
-  '/services/product-engineering/devops': {
-    title: 'DevOps & CI/CD Services | Improx Tech',
-    description: 'Accelerate software delivery with DevOps, CI/CD pipelines, automated testing, cloud deployment, containerization, infrastructure automation and continuous delivery practices.',
-    keywords: 'DevOps services, CI/CD pipelines, infrastructure as code, Terraform, Docker, Kubernetes, automated deployment, cloud automation, continuous delivery, cloud DevOps',
-  },
-  '/services/product-engineering/ux-design': {
-    title: 'UX/UI Design Services | Improx Tech',
-    description: 'Create intuitive digital experiences with UX research, UI design, design systems, responsive interfaces, usability testing and human-centered product design for web and mobile applications.',
-    keywords: 'UX UI design services, user experience design, user interface design, product design, design systems, usability testing, mobile UX UI, accessible UI design',
-  },
-  '/services/product-engineering/qa-testing': {
-    title: 'Software QA & Testing | Improx Tech',
-    description: 'Improve software quality with automated testing, functional testing, performance testing, security testing, regression testing and continuous quality assurance for reliable applications.',
-    keywords: 'software QA testing, quality assurance services, automated testing, performance testing, security testing, regression testing, QA engineering, continuous testing',
-  },
-  '/services/product-engineering/open-source': {
-    title: 'Open Source Engineering | Improx Tech',
-    description: 'Build and modernize software using open source technologies, frameworks and tools with secure architecture, scalable development, integration and enterprise engineering expertise.',
-    keywords: 'open source engineering, open source software development, enterprise open source solutions, open source migration, open source architecture, open source integrations',
-  },
-
-  // ── Technology Services ──────────────────────────────────────
   '/services/technology-services': {
     title: 'Enterprise Technology Services | Improx Tech',
-    description: 'Enterprise-grade cloud migration, DevSecOps, data engineering, cybersecurity, and managed IT infrastructure engineered for high resilience, security, and performance.',
-    keywords: 'enterprise technology services, IT infrastructure services, cloud solutions, DevSecOps services, data engineering, cybersecurity consulting, IoT technology services',
+    description: 'Enterprise-grade cloud migration, DevSecOps, data engineering, cybersecurity, and managed IT infrastructure engineered for high resilience and performance.',
+    keywords: 'enterprise technology services, cloud migration services, data engineering services, cybersecurity consulting services, it infrastructure management services',
   },
-  '/services/technology-services/cloud-migration': {
-    title: 'Cloud Migration Services | Improx Tech',
-    description: 'Migrate applications, workloads and data to the cloud with secure cloud migration strategies, modernization, infrastructure planning, automation, optimization and minimal business disruption.',
-    keywords: 'cloud migration services, AWS cloud migration, Azure migration, GCP migration, cloud infrastructure planning, zero downtime migration, workload modernization, cloud architecture',
-  },
-  '/services/technology-services/data-engineering': {
-    title: 'Data Engineering Services | Improx Tech',
-    description: 'Build reliable data platforms and pipelines for data integration, processing, transformation, analytics and business intelligence using scalable modern data engineering technologies.',
-    keywords: 'data engineering services, data pipelines, ETL pipelines, data lakehouse, modern data stack, big data engineering, data warehousing, data integration, Snowflake, dbt',
-  },
-  '/services/technology-services/infrastructure': {
-    title: 'IT Infrastructure Management | Improx Tech',
-    description: 'Manage secure and reliable IT infrastructure with monitoring, cloud infrastructure, system administration, performance optimization, automation, security and proactive technical support.',
-    keywords: 'IT infrastructure management, cloud infrastructure management, 24/7 system administration, infrastructure monitoring, IT network management, server maintenance, cloud governance',
-  },
-  '/services/technology-services/devsecops': {
-    title: 'DevSecOps Services | Improx Tech',
-    description: 'Integrate security into software development with DevSecOps, automated security testing, CI/CD security, vulnerability management, compliance controls and secure application delivery.',
-    keywords: 'DevSecOps services, DevSecOps engineering, secure CI/CD pipelines, automated security testing, vulnerability management, cloud security compliance, zero trust DevSecOps',
-  },
-  '/services/technology-services/cybersecurity': {
-    title: 'Enterprise Cybersecurity Solutions | Improx Tech',
-    description: 'Protect applications, systems and data with enterprise cybersecurity solutions including security assessment, threat protection, vulnerability management, secure development and continuous security monitoring.',
-    keywords: 'enterprise cybersecurity solutions, cybersecurity services, threat protection, security assessment, vulnerability management, penetration testing, SOC monitoring, zero trust architecture',
-  },
-  '/services/technology-services/iot': {
-    title: 'IoT Solutions & Services | Improx Tech',
-    description: 'Build connected IoT solutions with device integration, data collection, cloud connectivity, real-time monitoring, automation and scalable architectures for intelligent business operations.',
-    keywords: 'IoT solutions and services, enterprise IoT solutions, connected devices, edge computing, real-time IoT monitoring, smart device integration, industrial IoT platforms',
-  },
-
-  // ── AI & Business Intelligence ───────────────────────────────
   '/services/ai-ml': {
     title: 'AI & Business Intelligence Solutions | Improx Tech',
-    description: 'From Generative AI and machine learning to business intelligence and predictive analytics — we build intelligent systems that create measurable competitive advantage for enterprise organisations.',
-    keywords: 'AI and business intelligence, enterprise AI solutions, machine learning services, business analytics, predictive intelligence, enterprise data solutions, Generative AI consulting',
+    description: 'Apply generative AI, custom machine learning, predictive analytics, and executive business intelligence to power data-driven enterprise growth.',
+    keywords: 'generative ai development services, machine learning development services, business intelligence services, predictive analytics services',
   },
-  '/services/ai-ml/generative-ai': {
-    title: 'Generative AI Solutions | Improx Tech',
-    description: 'Implement generative AI solutions for enterprise automation, intelligent applications, AI assistants, content generation, knowledge management and productivity using secure scalable AI technology.',
-    keywords: 'generative AI solutions, enterprise GenAI, LLM integration, custom AI assistants, RAG architecture, generative AI development, intelligent automation, OpenAI integration',
-  },
-  '/services/ai-ml/business-intelligence': {
-    title: 'Business Intelligence Solutions | Improx Tech',
-    description: 'Turn business data into actionable insights with business intelligence, data analytics, interactive dashboards, reporting, data integration and decision-support solutions.',
-    keywords: 'business intelligence solutions, BI dashboards, enterprise data analytics, executive reporting, Power BI, Tableau, decision support systems, self-service BI platforms',
-  },
-  '/services/ai-ml/data-visualisation': {
-    title: 'Data Visualization Services | Improx Tech',
-    description: 'Transform complex data into clear visual insights with data visualization, interactive dashboards, reporting, business intelligence and analytics solutions for faster business decisions.',
-    keywords: 'data visualization services, interactive dashboards, real-time analytics dashboards, visual data reporting, BI data visualization, executive dashboards, business analytics charts',
-  },
-  '/services/ai-ml/machine-learning': {
-    title: 'Machine Learning Solutions | Improx Tech',
-    description: 'Build machine learning solutions for predictive modeling, intelligent automation, data-driven decision-making and enterprise applications using scalable AI and ML technologies.',
-    keywords: 'machine learning solutions, ML model development, predictive modeling, MLOps, deep learning, enterprise ML applications, AI engineering, data science solutions',
-  },
-  '/services/ai-ml/nlp-automation': {
-    title: 'NLP & Automation Solutions | Improx Tech',
-    description: 'Automate business workflows with NLP and intelligent automation solutions for text analysis, document processing, conversational AI, information extraction and enterprise process optimization.',
-    keywords: 'NLP solutions, intelligent automation, natural language processing, text analytics, conversational AI, document processing, information extraction, enterprise process automation',
-  },
-  '/services/ai-ml/predictive-analytics': {
-    title: 'Predictive Analytics Solutions | Improx Tech',
-    description: 'Use predictive analytics to identify trends, forecast outcomes and improve business decisions with machine learning, data modeling, advanced analytics and intelligent forecasting solutions.',
-    keywords: 'predictive analytics solutions, predictive modeling, forecasting analytics, business trend analysis, machine learning forecasting, risk prediction, predictive intelligence',
+  '/contact': {
+    title: 'Contact Improx Tech | Enterprise Technology Consultation',
+    description: 'Get in touch with Improx Tech architects and engineers. Schedule a technical consultation for your software development, cloud, or AI initiatives.',
+    keywords: 'contact Improx Tech, digital engineering consultation, software development inquiry, hire engineering team',
   },
 };
