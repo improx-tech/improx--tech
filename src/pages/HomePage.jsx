@@ -818,9 +818,9 @@ function HomePage() {
       </section>
 
       {/* ── Blog ── */}
-      <section id="blog" className="section-pad section-raised">
+      <section id="blog" style={{ padding: '80px 24px 44px', background: 'var(--bg-raised)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="reveal" style={{ marginBottom: '56px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
+          <div className="reveal active" style={{ marginBottom: '44px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
             <div>
               <span className="eyebrow" style={{ color: 'var(--brand)' }}>Latest Insights</span>
               <h2 style={{ fontSize: 'clamp(1.9rem,3.8vw,2.9rem)', fontWeight: 800, color: 'var(--text-hi)' }}>News & Articles</h2>
@@ -828,7 +828,7 @@ function HomePage() {
             <Link to="/blog" className="btn btn-outline" style={{ fontSize: '0.88rem' }}>View All <i className="fa-solid fa-arrow-right" /></Link>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '24px' }}>
-            {homePosts.map((b, i) => {
+            {homePosts.slice(0, 3).map((b, i) => {
               const isWp = !!b.id;
               const title = isWp ? b.title?.rendered : b.title;
               const desc = isWp
@@ -844,16 +844,17 @@ function HomePage() {
               const linkUrl = isWp ? `/blog/${b.id}` : '#read';
 
               return (
-                <article key={i} className="glass-card reveal" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+                <article key={i} className="glass-card reveal active" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
                   <div style={{ position: 'relative', height: '210px', overflow: 'hidden' }}>
                     <img src={imgUrl} alt={title} className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     <span style={{ position: 'absolute', top: '14px', left: '14px', padding: '3px 12px', background: 'var(--grad-brand)', borderRadius: '999px', fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>{category}</span>
                   </div>
-                  <div style={{ padding: '24px' }}>
+                  <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                     <span style={{ color: 'var(--brand)', fontSize: '0.76rem', fontWeight: 600 }}>{dateText}</span>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-hi)', margin: '8px 0 10px', lineHeight: 1.4 }}>{title}</h3>
                     <p style={{ color: 'var(--text-mid)', fontSize: '0.86rem', lineHeight: 1.65, marginBottom: '16px' }}>{desc}</p>
-                    {isWp ? (
+                    <div style={{ marginTop: 'auto', paddingTop: '12px' }}>
+                      {isWp ? (
                       <Link to={linkUrl} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', textDecoration: 'none' }}>
                         Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
                       </Link>
@@ -862,6 +863,7 @@ function HomePage() {
                         Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
                       </span>
                     )}
+                    </div>
                   </div>
                 </article>
               );
@@ -871,10 +873,10 @@ function HomePage() {
       </section>
 
       {/* ── Contact ── */}
-      <section id="contact" className="section-pad">
+      <section id="contact" style={{ padding: "56px 24px 88px", background: "var(--bg-subtle)", borderTop: "1px solid var(--border)" }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
           <div className="contact-grid">
-            <div className="reveal">
+            <div className="reveal active">
               <span className="eyebrow" style={{ color: 'var(--brand)' }}>Contact Us</span>
               <h2 style={{ fontSize: 'clamp(1.9rem,3.8vw,2.9rem)', fontWeight: 800, color: 'var(--text-hi)', marginBottom: '18px' }}>
                 Let's discuss your next{' '}

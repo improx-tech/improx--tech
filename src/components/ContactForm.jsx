@@ -77,7 +77,7 @@ function ContactForm() {
   };
 
   return (
-    <form className="contact-form card reveal" onSubmit={handleSubmit} noValidate>
+    <form className="contact-form card reveal active" onSubmit={handleSubmit} noValidate>
       <div className="form-row">
         <label>
           Full Name
