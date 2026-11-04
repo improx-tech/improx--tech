@@ -841,7 +841,7 @@ function HomePage() {
                 ? new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
                 : b.date;
               const category = isWp ? 'Tech Article' : b.category;
-              const linkUrl = isWp ? `/blog/${b.id}` : '#read';
+              const linkUrl = `/blog/${b.slug || b.id || 1}`;
 
               return (
                 <article key={i} className="glass-card reveal active" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
@@ -854,15 +854,9 @@ function HomePage() {
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-hi)', margin: '8px 0 10px', lineHeight: 1.4 }}>{title}</h3>
                     <p style={{ color: 'var(--text-mid)', fontSize: '0.86rem', lineHeight: 1.65, marginBottom: '16px' }}>{desc}</p>
                     <div style={{ marginTop: 'auto', paddingTop: '12px' }}>
-                      {isWp ? (
                       <Link to={linkUrl} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', textDecoration: 'none' }}>
                         Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
                       </Link>
-                    ) : (
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', cursor: 'pointer' }}>
-                        Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
-                      </span>
-                    )}
                     </div>
                   </div>
                 </article>
