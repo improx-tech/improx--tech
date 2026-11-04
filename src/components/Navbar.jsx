@@ -366,7 +366,7 @@ export default function Navbar() {
             </li>
           ))}
 
-          <li><Link to="/#about" onClick={closeAll} style={desktopLinkStyle}>About</Link></li>
+          <li><Link to="/about" onClick={closeAll} style={desktopLinkStyle}>About</Link></li>
           <li><Link to="/blog" onClick={closeAll} style={desktopLinkStyle}>Blog</Link></li>
         </ul>
 
@@ -443,7 +443,7 @@ export default function Navbar() {
               );
             })}
 
-            <Link to="/#about" onClick={closeAll} className="mobile-nav-link">
+            <Link to="/about" onClick={closeAll} className="mobile-nav-link">
               <i className="fa-solid fa-users" style={{ width: '20px', color: 'var(--brand)' }} /> About Us
             </Link>
             <Link to="/blog" onClick={closeAll} className="mobile-nav-link">

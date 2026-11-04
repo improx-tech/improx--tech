@@ -13,7 +13,7 @@ const cols = [
   {
     heading: 'Company',
     links: [
-      { label: 'About Us',  to: '/#about' },
+      { label: 'About Us',  to: '/about' },
       { label: 'Our Work',  to: '/#work'  },
       { label: 'Blog',      to: '/blog'   },
       { label: 'Careers',   to: '/careers' },

@@ -113,25 +113,28 @@ const CASE_STUDIES = [
 // Fallback BLOGS list if WordPress is offline
 const FALLBACK_BLOGS = [
   {
-    category: 'Cloud',
-    date: 'June 10, 2026',
-    title: 'The Future of Cloud Native Applications in 2026',
-    desc: 'How containerization and platform engineering are redefining enterprise software delivery.',
-    img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=700&q=80',
+    category: 'Enterprise Architecture',
+    date: 'November 4, 2026',
+    title: 'Architecting High-Throughput Digital Platforms: From Microservices to AI Workflows',
+    desc: 'An engineering guide on designing resilient, high-concurrency enterprise platforms using event-driven architectures, automated canary pipelines, and sandboxed AI agent orchestrations.',
+    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
+    id: 4,
   },
   {
-    category: 'Security',
-    date: 'May 28, 2026',
-    title: 'Zero Trust Architecture at Scale',
-    desc: 'A practical guide to securing enterprise endpoints and network perimeters in 2026.',
-    img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=700&q=80',
+    category: 'DevOps & Cloud',
+    date: 'October 28, 2026',
+    title: 'Benchmarking Multi-Cloud Kubernetes Latency & Ingress Performance',
+    desc: 'Comparative latency and egress cost benchmarks across GCP GKE, AWS EKS, and Azure AKS with Cilium eBPF networking.',
+    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80',
+    id: 2,
   },
   {
-    category: 'AI',
-    date: 'May 15, 2026',
-    title: 'LLMs in Enterprise: Beyond the Hype',
-    desc: 'Where Generative AI is delivering real, measurable value in enterprise operations.',
-    img: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=700&q=80',
+    category: 'AI & Data',
+    date: 'October 15, 2026',
+    title: 'Enterprise AI Agent Orchestration: Lessons from Production Deployments',
+    desc: 'Designing deterministic, secure multi-agent systems with MCP protocol support, sandboxed tool execution, and guardrail validations.',
+    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80',
+    id: 3,
   },
 ];
 
@@ -618,7 +621,12 @@ function HomePage() {
       try {
         const posts = await fetchFromWp('/posts?per_page=3&_embed');
         if (posts && posts.length > 0) {
-          setHomePosts(posts);
+          const valid = posts.filter(p => {
+            const t = (p.title?.rendered || p.title || '').toLowerCase();
+            const s = (p.slug || '').toLowerCase();
+            return !t.includes('hello world') && !s.includes('hello-world') && !s.includes('test-studio');
+          });
+          setHomePosts(valid.length > 0 ? valid : posts);
         }
       } catch (err) {
         console.warn('WordPress offline, showing fallback home posts:', err);
@@ -665,12 +673,14 @@ function HomePage() {
                 With deep expertise across cloud, AI, and enterprise application engineering, our teams operate as an extension of yours — aligned to your goals, transparent in execution, relentless in delivery quality.
               </p>
 
-              {/* Stats */}
-              <div style={{ display: 'flex', gap: '40px', flexWrap: 'wrap', marginBottom: '36px' }}>
+              {/* Stats: Balanced 4-column desktop / 2x2 grid on mobile */}
+              <div className="about-stats-grid" style={{ marginBottom: '36px', borderTop: '1px solid var(--border)', paddingTop: '24px' }}>
                 {STATS.map(s => (
-                  <div key={s.label}>
-                    <div className="stat-num" style={{ background: 'var(--grad-brand)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}><span data-count={s.value}>0</span>{s.suffix}</div>
-                    <div className="stat-label" style={{ color: 'var(--text-mid)' }}>{s.label}</div>
+                  <div key={s.label} style={{ minWidth: 0 }}>
+                    <div className="stat-num" style={{ background: 'var(--grad-brand)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: 'clamp(1.9rem, 2.6vw, 2.5rem)', fontWeight: 900 }}>
+                      <span data-count={s.value}>0</span>{s.suffix}
+                    </div>
+                    <div className="stat-label" style={{ color: 'var(--text-mid)', fontSize: '0.84rem', marginTop: '4px', fontWeight: 600 }}>{s.label}</div>
                   </div>
                 ))}
               </div>
@@ -687,22 +697,49 @@ function HomePage() {
                 alt="Improx Tech software development team collaborating"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '380px', display: 'block' }}
               />
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(248,250,252,0.85) 0%, transparent 100%)' }} />
-              {/* floating badge */}
-              <div className="glass-card" style={{ position: 'absolute', bottom: '-20px', left: '-20px', padding: '16px 22px', borderRadius: '14px', maxWidth: '220px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '6px' }}>
-                  <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--grad-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(248,250,252,0.4) 0%, transparent 100%)' }} />
+              
+              {/* Bottom ISO 27001 Badge - completely inside the frame, zero clipping */}
+              <div style={{
+                position: 'absolute',
+                bottom: '16px',
+                left: '16px',
+                padding: '14px 18px',
+                borderRadius: '12px',
+                maxWidth: '240px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                border: '1px solid var(--border)',
+                boxShadow: '0 8px 24px rgba(15, 23, 42, 0.12)',
+                backdropFilter: 'blur(12px)',
+                zIndex: 2
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '4px' }}>
+                  <div style={{ width: '30px', height: '30px', borderRadius: '8px', background: 'var(--grad-brand)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <i className="fa-solid fa-shield-halved" style={{ color: '#fff', fontSize: '0.8rem' }} />
                   </div>
-                  <strong style={{ fontSize: '0.85rem', color: 'var(--text-hi)' }}>ISO 27001 Certified</strong>
+                  <strong style={{ fontSize: '0.86rem', color: 'var(--text-hi)' }}>ISO 27001 Certified</strong>
                 </div>
-                <p style={{ color: 'var(--text-mid)', fontSize: '0.75rem', margin: 0 }}>Security-first across all projects.</p>
+                <p style={{ color: 'var(--text-mid)', fontSize: '0.74rem', margin: 0, lineHeight: 1.4 }}>Security-first engineering across all client platforms.</p>
               </div>
-              <div className="glass-card" style={{ position: 'absolute', top: '20px', right: '-16px', padding: '14px 18px', borderRadius: '12px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
-                  <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-hi)' }}>24/7 Support Active</span>
-                </div>
+
+              {/* Top 24/7 Support Badge - completely inside the frame */}
+              <div style={{
+                position: 'absolute',
+                top: '16px',
+                right: '16px',
+                padding: '10px 16px',
+                borderRadius: '99px',
+                background: 'rgba(255, 255, 255, 0.95)',
+                border: '1px solid var(--border)',
+                boxShadow: '0 6px 18px rgba(15, 23, 42, 0.1)',
+                backdropFilter: 'blur(12px)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                zIndex: 2
+              }}>
+                <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981', display: 'inline-block', boxShadow: '0 0 8px #10B981' }} />
+                <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-hi)', fontFamily: 'var(--font-head)' }}>24/7 Support Active</span>
               </div>
             </div>
           </div>

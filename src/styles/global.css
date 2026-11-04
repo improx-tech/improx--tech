@@ -495,3 +495,23 @@ footer{background:var(--bg-raised);border-top:1px solid var(--border);padding:64
 @media(max-width:540px){
   .footer-inner{grid-template-columns:1fr;gap:28px}
 }
+
+
+/* ── About Stats Grid (Balanced 4-col / 2x2 grid) ── */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
