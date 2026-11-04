@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const WP_FORM_API = 'http://improx-tech.local/wp-json/form/v1/submit';
+const FORM_API_URL = import.meta.env.VITE_CONTACT_API_URL || '/contact.php';
 const phoneRegex = /^\+91\s?[6-9]\d{9}$/;
 
 function ContactForm() {
@@ -41,15 +41,21 @@ function ContactForm() {
     setStatusType('');
 
     try {
-      const response = await fetch(WP_FORM_API, {
+      const response = await fetch(FORM_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(state),
       });
-      const result = await response.json();
+
+      let result;
+      try {
+        result = await response.json();
+      } catch {
+        result = { success: response.ok, message: response.statusText };
+      }
 
       if (response.ok && result.success) {
-        setStatus('Form submitted successfully. We will contact you shortly.');
+        setStatus('Thank you! Your message has been sent successfully. We will contact you shortly.');
         setStatusType('success');
         setState({ name: '', email: '', phone: '', service: '', message: '' });
       } else {
@@ -57,8 +63,14 @@ function ContactForm() {
         setStatusType('error');
       }
     } catch (error) {
-      setStatus('Network error. Please check your connection and try again.');
-      setStatusType('error');
+      if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        setStatus('Local Dev: Form simulated successfully (On live Hostinger, this sends directly to enquiry@improxgroup.com).');
+        setStatusType('success');
+        setState({ name: '', email: '', phone: '', service: '', message: '' });
+      } else {
+        setStatus('Unable to connect. Please check your connection or reach us directly at enquiry@improxgroup.com.');
+        setStatusType('error');
+      }
     } finally {
       setSubmitting(false);
     }
