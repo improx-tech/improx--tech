@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import SEOManager from './components/SEOManager';
 
 // Pages
 import HomePage               from './pages/HomePage';
@@ -9,6 +10,7 @@ import ServicesPage           from './pages/ServicesPage';
 import BlogPage               from './pages/BlogPage';
 import BlogPostPage           from './pages/BlogPostPage';
 import ContactPage            from './pages/ContactPage';
+import CareersPage            from './pages/CareersPage';
 
 // ── Application Services ──────────────────────────────
 import ApplicationServicesPage  from './pages/ApplicationServicesPage';
@@ -127,6 +129,7 @@ function App() {
     <>
       <ScrollManager />
       <ObserverManager />
+      <SEOManager />
       <Routes>
         <Route path="/" element={<MainLayout />}>
 
@@ -137,6 +140,7 @@ function App() {
           <Route path="blog"    element={<BlogPage />}    />
           <Route path="blog/:id"element={<BlogPostPage />}/>
           <Route path="contact" element={<ContactPage />} />
+          <Route path="careers" element={<CareersPage />} />
 
           {/* Application Services */}
           <Route path="services/application-services">
