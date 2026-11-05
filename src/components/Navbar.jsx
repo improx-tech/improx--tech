@@ -146,15 +146,21 @@ export default function Navbar() {
 
         {/* Logo */}
         <Link to="/" onClick={closeAll} style={{
-          fontFamily: 'var(--font-head)',
-          fontSize: '1.4rem',
-          fontWeight: 900,
-          color: 'var(--text-hi)',
-          letterSpacing: '-0.04em',
+          display: 'inline-flex',
+          alignItems: 'center',
           textDecoration: 'none',
           flexShrink: 0
         }}>
-          Improx<span style={{ color: 'var(--brand)' }}>Tech</span>
+          <img
+            src="/logo.png"
+            alt="Improx Tech"
+            style={{
+              height: '36px',
+              width: 'auto',
+              display: 'block',
+              objectFit: 'contain'
+            }}
+          />
         </Link>
 
         {/* ── DESKTOP NAVIGATION MENU (> 1024px) ── */}
