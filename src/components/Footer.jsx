@@ -34,7 +34,9 @@ function Footer() {
     <footer>
       <div className="footer-inner">
         <div>
-          <Link to="/" className="logo">Improx<span>Tech</span></Link>
+          <Link to="/" className="logo" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '14px' }}>
+            <img src="/logo.png" alt="Improx Tech" style={{ height: '36px', width: 'auto', display: 'block' }} />
+          </Link>
           <p>Building secure, scalable digital platforms and intelligent technology systems for enterprise organisations worldwide.</p>
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.88rem', color: 'var(--text-mid)' }}>
             <a href="mailto:enquiry@improxgroup.com" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'inherit', textDecoration: 'none' }}>
