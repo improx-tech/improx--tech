@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
-import { fetchFromWp } from '../utils/wpApi';
+import { fetchFromWp, FALLBACK_POSTS, isDummyPost } from '../utils/wpApi';
 import '../styles/hero.css';
 
 /* ── Rotating headlines ─────────────────────────────── */
@@ -110,33 +110,6 @@ const CASE_STUDIES = [
   },
 ];
 
-// Fallback BLOGS list if WordPress is offline
-const FALLBACK_BLOGS = [
-  {
-    category: 'Enterprise Architecture',
-    date: 'November 4, 2026',
-    title: 'Architecting High-Throughput Digital Platforms: From Microservices to AI Workflows',
-    desc: 'An engineering guide on designing resilient, high-concurrency enterprise platforms using event-driven architectures, automated canary pipelines, and sandboxed AI agent orchestrations.',
-    img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80',
-    id: 4,
-  },
-  {
-    category: 'DevOps & Cloud',
-    date: 'October 28, 2026',
-    title: 'Benchmarking Multi-Cloud Kubernetes Latency & Ingress Performance',
-    desc: 'Comparative latency and egress cost benchmarks across GCP GKE, AWS EKS, and Azure AKS with Cilium eBPF networking.',
-    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=700&q=80',
-    id: 2,
-  },
-  {
-    category: 'AI & Data',
-    date: 'October 15, 2026',
-    title: 'Enterprise AI Agent Orchestration: Lessons from Production Deployments',
-    desc: 'Designing deterministic, secure multi-agent systems with MCP protocol support, sandboxed tool execution, and guardrail validations.',
-    img: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80',
-    id: 3,
-  },
-];
 
 /* ── ServiceHoverCard ───────────────────────────────── */
 function ServiceHoverCard({ service }) {
@@ -614,22 +587,20 @@ function Hero() {
 
 /* ── Page ─────────────────────────────────────────── */
 function HomePage() {
-  const [homePosts, setHomePosts] = useState(FALLBACK_BLOGS);
+  const [homePosts, setHomePosts] = useState(FALLBACK_POSTS);
 
   useEffect(() => {
     const fetchHomeWpPosts = async () => {
       try {
         const posts = await fetchFromWp('/posts?per_page=3&_embed');
-        if (posts && posts.length > 0) {
-          const valid = posts.filter(p => {
-            const t = (p.title?.rendered || p.title || '').toLowerCase();
-            const s = (p.slug || '').toLowerCase();
-            return !t.includes('hello world') && !s.includes('hello-world') && !s.includes('test-studio');
-          });
-          setHomePosts(valid.length > 0 ? valid : posts);
+        if (Array.isArray(posts) && posts.length > 0) {
+          const valid = posts.filter((p) => !isDummyPost(p));
+          if (valid.length > 0) {
+            setHomePosts(valid);
+          }
         }
       } catch (err) {
-        console.warn('WordPress offline, showing fallback home posts:', err);
+        // Keeps verified fallback posts
       }
     };
     fetchHomeWpPosts();
@@ -818,44 +789,146 @@ function HomePage() {
       </section>
 
       {/* ── Blog ── */}
-      <section id="blog" style={{ padding: '80px 24px 44px', background: 'var(--bg-raised)', borderBottom: '1px solid var(--border)' }}>
+      <section id="blog" style={{ padding: '84px 24px 52px', background: 'var(--bg-raised)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto', padding: '0 24px' }}>
-          <div className="reveal active" style={{ marginBottom: '44px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px' }}>
-            <div>
-              <span className="eyebrow" style={{ color: 'var(--brand)' }}>Latest Insights</span>
-              <h2 style={{ fontSize: 'clamp(1.9rem,3.8vw,2.9rem)', fontWeight: 800, color: 'var(--text-hi)' }}>News & Articles</h2>
+          <div className="reveal active" style={{ marginBottom: '48px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '20px' }}>
+            <div style={{ maxWidth: '680px' }}>
+              <span className="eyebrow" style={{ color: 'var(--brand)', marginBottom: '10px' }}>
+                <span className="glow-dot" style={{ marginRight: '6px' }} /> Engineering & Architecture Insights
+              </span>
+              <h2 style={{ fontSize: 'clamp(2rem, 3.8vw, 2.9rem)', fontWeight: 800, color: 'var(--text-hi)', lineHeight: 1.15, letterSpacing: '-0.03em', margin: '0 0 12px' }}>
+                Latest Thinking from Our Principal Engineers
+              </h2>
+              <p style={{ color: 'var(--text-mid)', fontSize: '1rem', lineHeight: 1.65, margin: 0 }}>
+                Real-world blueprints on high-concurrency microservices, multi-cloud Kubernetes, and deterministic AI agent orchestration.
+              </p>
             </div>
-            <Link to="/blog" className="btn btn-outline" style={{ fontSize: '0.88rem' }}>View All <i className="fa-solid fa-arrow-right" /></Link>
+            <Link to="/blog" className="btn btn-outline" style={{ fontSize: '0.88rem', padding: '10px 22px' }}>
+              Explore All Insights <i className="fa-solid fa-arrow-right" style={{ marginLeft: '6px' }} />
+            </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: '24px' }}>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
             {homePosts.slice(0, 3).map((b, i) => {
-              const isWp = !!b.id;
-              const title = isWp ? b.title?.rendered : b.title;
-              const desc = isWp
-                ? (b.excerpt?.rendered ? b.excerpt.rendered.replace(/<[^>]+>/g, '').slice(0, 120) + '…' : '')
-                : b.desc;
-              const imgUrl = isWp
-                ? (b._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=80')
-                : b.img;
-              const dateText = isWp
-                ? new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-                : b.date;
-              const category = isWp ? 'Tech Article' : b.category;
+              const title = b.title?.rendered || (typeof b.title === 'string' ? b.title : 'Technical Article');
+              const excerpt = b.excerpt?.rendered 
+                ? b.excerpt.rendered.replace(/<[^>]+>/g, '').slice(0, 135) + '…'
+                : (b.meta_description || b.desc || '');
+              const imgUrl = b.featured_image || b._embedded?.['wp:featuredmedia']?.[0]?.source_url || b.img;
+              const dateText = new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+              const category = b.category || 'Architecture';
+              const readTime = b.read_time || '8 min read';
+              const authorName = b.author?.name || 'Improx Team';
+              const authorRole = b.author?.role || 'Principal Architect';
+              const authorAvatar = b.author?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80';
               const linkUrl = `/blog/${b.slug || b.id || 1}`;
 
               return (
-                <article key={i} className="glass-card reveal active" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)', display: 'flex', flexDirection: 'column' }}>
-                  <div style={{ position: 'relative', height: '210px', overflow: 'hidden' }}>
-                    <img src={imgUrl} alt={title} className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    <span style={{ position: 'absolute', top: '14px', left: '14px', padding: '3px 12px', background: 'var(--grad-brand)', borderRadius: '999px', fontSize: '0.68rem', fontWeight: 700, color: '#fff' }}>{category}</span>
-                  </div>
+                <article
+                  key={b.id || i}
+                  className="glass-card reveal active"
+                  style={{
+                    padding: 0,
+                    overflow: 'hidden',
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--border)',
+                    borderRadius: '18px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    boxShadow: 'var(--shadow-card)',
+                    transition: 'transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease'
+                  }}
+                >
+                  <Link to={linkUrl} style={{ position: 'relative', height: '220px', overflow: 'hidden', display: 'block' }}>
+                    <img
+                      src={imgUrl}
+                      alt={title}
+                      className="img-hover"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.4) 100%)' }} />
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '14px',
+                        left: '14px',
+                        padding: '4px 12px',
+                        background: 'rgba(15, 23, 42, 0.85)',
+                        backdropFilter: 'blur(8px)',
+                        borderRadius: '999px',
+                        fontSize: '0.7rem',
+                        fontWeight: 700,
+                        color: '#fff',
+                        letterSpacing: '0.5px'
+                      }}
+                    >
+                      {category}
+                    </span>
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: '14px',
+                        right: '14px',
+                        padding: '4px 10px',
+                        background: 'rgba(255, 255, 255, 0.9)',
+                        backdropFilter: 'blur(8px)',
+                        borderRadius: '999px',
+                        fontSize: '0.68rem',
+                        fontWeight: 700,
+                        color: '#0F172A'
+                      }}
+                    >
+                      <i className="fa-regular fa-clock" style={{ marginRight: '4px', color: 'var(--brand)' }} />
+                      {readTime}
+                    </span>
+                  </Link>
+
                   <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                    <span style={{ color: 'var(--brand)', fontSize: '0.76rem', fontWeight: 600 }}>{dateText}</span>
-                    <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-hi)', margin: '8px 0 10px', lineHeight: 1.4 }}>{title}</h3>
-                    <p style={{ color: 'var(--text-mid)', fontSize: '0.86rem', lineHeight: 1.65, marginBottom: '16px' }}>{desc}</p>
-                    <div style={{ marginTop: 'auto', paddingTop: '12px' }}>
-                      <Link to={linkUrl} style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: 'var(--brand)', fontWeight: 600, fontSize: '0.82rem', textDecoration: 'none' }}>
-                        Read Article <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.68rem' }} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.78rem', color: 'var(--text-mid)', marginBottom: '10px' }}>
+                      <i className="fa-regular fa-calendar" />
+                      <span>{dateText}</span>
+                    </div>
+
+                    <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: 'var(--text-hi)', margin: '0 0 12px', lineHeight: 1.38, letterSpacing: '-0.02em' }}>
+                      <Link to={linkUrl} style={{ color: 'inherit', textDecoration: 'none' }}>
+                        {title}
+                      </Link>
+                    </h3>
+
+                    <p style={{ color: 'var(--text-mid)', fontSize: '0.9rem', lineHeight: 1.65, marginBottom: '20px' }}>
+                      {excerpt}
+                    </p>
+
+                    <div style={{ marginTop: 'auto', paddingTop: '16px', borderTop: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <img
+                          src={authorAvatar}
+                          alt={authorName}
+                          style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--border-brand)' }}
+                        />
+                        <div>
+                          <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-hi)', display: 'block', lineHeight: 1.2 }}>
+                            {authorName}
+                          </span>
+                          <span style={{ fontSize: '0.72rem', color: 'var(--text-mid)' }}>
+                            {authorRole}
+                          </span>
+                        </div>
+                      </div>
+
+                      <Link
+                        to={linkUrl}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          color: 'var(--brand)',
+                          fontWeight: 700,
+                          fontSize: '0.84rem',
+                          textDecoration: 'none'
+                        }}
+                      >
+                        Read <i className="fa-solid fa-arrow-right" style={{ fontSize: '0.72rem' }} />
                       </Link>
                     </div>
                   </div>
