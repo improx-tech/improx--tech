@@ -109,4 +109,19 @@ if (fs.existsSync(robotsSource)) {
   console.log('Synced robots.txt to dist/');
 }
 
+// 8. Ensure .well-known/ard.json and llms.txt are explicitly synced to dist
+const ardSource = path.join(publicDir, '.well-known', 'ard.json');
+const ardDistDir = path.join(distDir, '.well-known');
+if (fs.existsSync(ardSource)) {
+  if (!fs.existsSync(ardDistDir)) fs.mkdirSync(ardDistDir, { recursive: true });
+  fs.copyFileSync(ardSource, path.join(ardDistDir, 'ard.json'));
+  console.log('Synced .well-known/ard.json to dist/');
+}
+
+const llmsSource = path.join(publicDir, 'llms.txt');
+if (fs.existsSync(llmsSource)) {
+  fs.copyFileSync(llmsSource, path.join(distDir, 'llms.txt'));
+  console.log('Synced llms.txt to dist/');
+}
+
 console.log(`Successfully generated SEO HTML files for all ${count} routes in dist/!`);
