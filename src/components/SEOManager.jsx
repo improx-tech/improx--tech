@@ -108,6 +108,15 @@ export default function SEOManager() {
       // General fallback if route is not explicitly mapped and not a dynamic blog
       applySEO();
     }
+
+    // Push page_view to Google Tag Manager dataLayer on every route transition
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'page_view',
+        page_path: location.pathname + location.search,
+        page_title: document.title,
+      });
+    }
   }, [location.pathname]);
 
   return null;
