@@ -1,12 +1,6 @@
 // Improx Tech - Blog & WordPress API client utility
 import localPostsData from '../data/posts.json';
 
-const PROD_API_URL      = 'https://improxtech.com/api/blogs';
-const PROD_WP_URL       = 'https://improxtech.com/wp-json/wp/v2';
-const FASTAPI_LOCAL_URL = 'http://localhost:8000/wp-json/wp/v2';
-const FASTAPI_ALT_URL   = 'http://localhost:8000/api/blogs';
-const LOCAL_WP_URL      = 'http://improx-tech.local/wp-json/wp/v2';
-
 export const FALLBACK_POSTS = Array.isArray(localPostsData) && localPostsData.length > 0
   ? localPostsData
   : [];
@@ -28,40 +22,56 @@ export const isDummyPost = (p) => {
 
 export const getWpUrls = (pathAndQuery) => {
   const cleanPath = pathAndQuery.startsWith('/') ? pathAndQuery : `/${pathAndQuery}`;
-  const origin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5173';
+  
+  // If an explicit remote WordPress API URL is provided via environment variables, use only that
+  const customApi = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_WP_API_URL;
+  if (customApi) {
+    return [`${customApi.replace(/\/$/, '')}${cleanPath}`];
+  }
+
+  const isLocal = typeof window !== 'undefined' && (
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1' ||
+    window.location.hostname.endsWith('.local')
+  );
+
+  // In production, do not attempt to probe localhost:8000 or improx-tech.local to avoid
+  // network timeout latency (7.8s) and browser console connection errors.
+  if (!isLocal) {
+    return [];
+  }
 
   return [
-    `${origin}/api/blogs`,
-    `${PROD_API_URL}`,
-    `${PROD_WP_URL}${cleanPath}`,
-    `${FASTAPI_LOCAL_URL}${cleanPath}`,
-    `${FASTAPI_ALT_URL}${cleanPath.replace(/^\/posts/, '')}`,
-    `${LOCAL_WP_URL}${cleanPath}`,
+    `http://localhost:8000/wp-json/wp/v2${cleanPath}`,
+    `http://localhost:8000/api/blogs${cleanPath.replace(/^\/posts/, '')}`,
+    `http://improx-tech.local/wp-json/wp/v2${cleanPath}`,
   ];
 };
 
 export const fetchFromWp = async (pathAndQuery) => {
   const urls = getWpUrls(pathAndQuery);
 
-  for (const url of urls) {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 1800);
+  if (urls.length > 0) {
+    for (const url of urls) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1200);
 
-      const res = await fetch(url, { signal: controller.signal });
-      clearTimeout(timeoutId);
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
 
-      if (!res.ok) continue;
-      const data = await res.json();
+        if (!res.ok) continue;
+        const data = await res.json();
 
-      if (Array.isArray(data) && data.length > 0) {
-        const realPosts = data.filter((p) => !isDummyPost(p));
-        if (realPosts.length > 0) return realPosts;
-      } else if (data && typeof data === 'object' && !Array.isArray(data)) {
-        if (!isDummyPost(data)) return data;
+        if (Array.isArray(data) && data.length > 0) {
+          const realPosts = data.filter((p) => !isDummyPost(p));
+          if (realPosts.length > 0) return realPosts;
+        } else if (data && typeof data === 'object' && !Array.isArray(data)) {
+          if (!isDummyPost(data)) return data;
+        }
+      } catch {
+        // Continue to next candidate URL
       }
-    } catch (err) {
-      // Continue to next candidate URL
     }
   }
 

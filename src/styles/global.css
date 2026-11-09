@@ -1,4 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800;900&display=swap');
+/* Font Awesome font-display swap override for Core Web Vitals */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-display: swap;
+}
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    DESIGN TOKENS  –  Professional Dark Theme
@@ -63,7 +71,7 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.15;letter-spacing:-0.025e
 
 /* ── Typography ── */
 .gradient-text{background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--brand-lt);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--brand-deep);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:12px}
 .glow-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);display:inline-block}
 
 /* ── Buttons ── */
@@ -73,11 +81,11 @@ h1,h2,h3,h4{font-family:var(--font-head);line-height:1.15;letter-spacing:-0.025e
 .btn-primary:hover{box-shadow:0 8px 28px rgba(37,99,235,.5);color:#fff}
 .btn-secondary{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--text-hi)}
 .btn-secondary:hover{background:rgba(255,255,255,.1);color:var(--text-hi)}
-.btn-outline{background:transparent;border:1px solid var(--border-brand);color:var(--brand-lt)}
-.btn-outline:hover{background:rgba(37,99,235,.15);border-color:var(--brand);color:var(--text-hi)}
+.btn-outline{background:transparent;border:1.5px solid var(--brand);color:var(--brand-deep);font-weight:600}
+.btn-outline:hover{background:rgba(37,99,235,.08);border-color:var(--brand-deep);color:var(--brand-deep)}
 
 /* ── Badge ── */
-.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:var(--r-pill);background:rgba(37,99,235,.1);color:var(--brand-lt);border:1px solid rgba(37,99,235,.2);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:var(--r-pill);background:rgba(37,99,235,.1);color:var(--brand-deep);border:1px solid rgba(37,99,235,.3);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px}
 
 /* ── Cards — Glassmorphism Enabled ── */
 .glass-card,.glass-panel{

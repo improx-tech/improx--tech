@@ -35,7 +35,7 @@ function Footer() {
       <div className="footer-inner">
         <div>
           <Link to="/" className="logo" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '14px' }}>
-            <img src="/logo.png" alt="Improx Tech" style={{ height: '36px', width: 'auto', display: 'block' }} />
+            <img src="/logo.png" alt="Improx Tech" width="125" height="36" style={{ height: '36px', width: 'auto', display: 'block', objectFit: 'contain' }} />
           </Link>
           <p>Building secure, scalable digital platforms and intelligent technology systems for enterprise organisations worldwide.</p>
           <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.88rem', color: 'var(--text-mid)' }}>
@@ -60,7 +60,7 @@ function Footer() {
         </div>
         {cols.map(col => (
           <div key={col.heading}>
-            <h4>{col.heading}</h4>
+            <h3 className="footer-col-title" style={{ fontFamily: 'var(--font-head)', fontSize: '0.88rem', fontWeight: 700, color: 'var(--text-hi)', marginBottom: '16px' }}>{col.heading}</h3>
             {col.links.map(l => <Link key={l.label} to={l.to}>{l.label}</Link>)}
           </div>
         ))}

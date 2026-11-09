@@ -154,6 +154,8 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="Improx Tech"
+            width="125"
+            height="36"
             style={{
               height: '36px',
               width: 'auto',

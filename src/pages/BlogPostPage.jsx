@@ -316,9 +316,9 @@ function BlogPostPage() {
                     <span style={{ fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--brand)', letterSpacing: '1px', display: 'block', marginBottom: '4px' }}>
                       Written By
                     </span>
-                    <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-hi)', margin: '0 0 4px' }}>
+                    <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-hi)', margin: '0 0 4px' }}>
                       {authorName}
-                    </h4>
+                    </h3>
                     <p style={{ fontSize: '0.84rem', color: 'var(--brand)', fontWeight: 600, marginBottom: '8px' }}>
                       {authorRole}
                     </p>
@@ -344,9 +344,9 @@ function BlogPostPage() {
                 {/* Table of Contents */}
                 {toc.length > 0 && (
                   <div className="toc-card">
-                    <h4>
-                      <i className="fa-solid fa-list-ul" /> Table of Contents
-                    </h4>
+                    <h3 style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--text-hi)', margin: '0 0 16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <i className="fa-solid fa-list-ul" style={{ color: 'var(--brand)' }} /> Table of Contents
+                    </h3>
                     <ul className="toc-list">
                       {toc.map((item, idx) => (
                         <li key={item.id}>
@@ -371,9 +371,9 @@ function BlogPostPage() {
                   <span style={{ fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--brand)', letterSpacing: '1px', display: 'block', marginBottom: '8px' }}>
                     Practice Focus
                   </span>
-                  <h4 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-hi)', marginBottom: '14px' }}>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-hi)', marginBottom: '14px' }}>
                     {category}
-                  </h4>
+                  </h3>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.84rem', color: 'var(--text-mid)' }}>
                     <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                       <i className="fa-solid fa-check" style={{ color: 'var(--brand)' }} /> Production Scalability
@@ -392,9 +392,9 @@ function BlogPostPage() {
                   <span style={{ fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1px', display: 'block', marginBottom: '8px', opacity: 0.9 }}>
                     Advisory Services
                   </span>
-                  <h4 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '10px', lineHeight: 1.3 }}>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginBottom: '10px', lineHeight: 1.3 }}>
                     Modernizing Your Digital Architecture?
-                  </h4>
+                  </h3>
                   <p style={{ fontSize: '0.84rem', lineHeight: 1.6, opacity: 0.9, marginBottom: '20px' }}>
                     Schedule a confidential 30-minute technical review with our principal cloud and software architects.
                   </p>
@@ -443,15 +443,15 @@ function BlogPostPage() {
                     return (
                       <article key={i} className="glass-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
                         <div style={{ position: 'relative', height: '180px', overflow: 'hidden' }}>
-                          <img src={rImg} alt={rTitle} className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                          <img src={rImg} alt={rTitle} loading="lazy" decoding="async" width="400" height="240" className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                           <span style={{ position: 'absolute', top: '12px', left: '12px', padding: '3px 10px', background: 'var(--grad-brand)', borderRadius: '999px', fontSize: '0.65rem', fontWeight: 700, color: '#fff' }}>
                             {rCategory}
                           </span>
                         </div>
                         <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                          <h4 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-hi)', margin: '0 0 10px', lineHeight: 1.4 }}>
+                          <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-hi)', margin: '0 0 10px', lineHeight: 1.4 }}>
                             {rTitle}
-                          </h4>
+                          </h3>
                           <p style={{ color: 'var(--text-mid)', fontSize: '0.84rem', lineHeight: 1.6, marginBottom: '16px' }}>
                             {rExcerpt}
                           </p>

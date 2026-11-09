@@ -1,0 +1,24 @@
+# Improx Tech
+
+> Improx Tech is a global digital engineering firm headquartered in Pune, India. We engineer mission-critical digital systems, modern cloud architectures, enterprise software, and automated artificial intelligence platforms for commercial enterprises worldwide.
+
+## Primary Capabilities & Practices
+
+- [Application Services](https://improxtech.com/services/application-services): Custom enterprise software, multi-tenant SaaS architecture, mobile engineering (iOS & Android), API development, legacy modernization, and 24/7 proactive maintenance.
+- [Product Engineering](https://improxtech.com/services/product-engineering): End-to-end product strategy, user experience (UX) and design systems, rapid prototyping, automated QA/testing, CI/CD pipelines, and open-source platform engineering.
+- [Technology Services](https://improxtech.com/services/technology-services): Zero-downtime cloud migration (AWS, GCP, Azure), DevSecOps governance, enterprise data engineering, cybersecurity & penetration testing, infrastructure management, and IoT frameworks.
+- [AI & Business Intelligence](https://improxtech.com/services/ai-ml): Generative AI implementations, custom LLMs, Retrieval-Augmented Generation (RAG) pipelines, Model Context Protocol (MCP) tool integration, predictive machine learning, and executive BI dashboards.
+
+## Architectural Case Studies & Technical Journal
+
+- [Technical Insights & Blueprints](https://improxtech.com/blog): In-depth engineering playbooks, benchmarks, and architectural designs written by principal architects.
+- [Architecting High-Throughput Digital Platforms](https://improxtech.com/blog/architecting-high-throughput-digital-platforms): Event-driven architectures, Kafka streaming, Transactional Outbox pattern, and canary deployment pipelines.
+- [Benchmarking Multi-Cloud Kubernetes Latency](https://improxtech.com/blog/benchmarking-multi-cloud-kubernetes-latency): Empirical throughput and latency benchmarks across AWS EKS, GCP GKE, and Azure AKS with Cilium eBPF mesh networking.
+- [Enterprise AI Agent Orchestration](https://improxtech.com/blog/enterprise-ai-agent-orchestration-lessons): Deterministic state graphs, Model Context Protocol (MCP), and Pydantic schema guardrails for production AI.
+
+## Company & Compliance
+
+- [About Improx Tech](https://improxtech.com/about): Corporate background, leadership team, ISO 27001 certification details, and distributed delivery model.
+- [Contact & Architecture Consultations](https://improxtech.com/contact): Inquiries, RFPs, and confidential technical advisory reviews.
+- [Official Website](https://improxtech.com/): Production website.
+- [XML Sitemap](https://improxtech.com/sitemap.xml): Complete machine-readable XML sitemap index.

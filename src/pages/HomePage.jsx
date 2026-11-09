@@ -91,21 +91,21 @@ const CASE_STUDIES = [
     title: 'Enterprise ERP Modernization',
     tags: 'Cloud · Modernization',
     result: '38% TCO Reduction',
-    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=70',
     desc: 'Unified 12 legacy modules into a cloud-native platform for a global manufacturing group.',
   },
   {
     title: 'AI-Powered Support Automation',
     tags: 'AI · Automation',
     result: '78% Faster Resolution',
-    img: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=600&q=70',
     desc: 'NLP ticket triage system cutting average handle time from 18 minutes to under 4.',
   },
   {
     title: 'Real-Time BI Platform',
     tags: 'Data · Analytics',
     result: '5× Faster Insights',
-    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=700&q=80',
+    img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=70',
     desc: 'Consolidated multi-source data into a unified BI layer for real-time executive decisions.',
   },
 ];
@@ -209,12 +209,13 @@ function ServiceHoverCard({ service }) {
           </div>
           <Link
             to={service.to}
+            aria-label={`Explore ${service.title} Practice`}
             style={{
               marginTop: 'auto',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              color: 'var(--brand)',
+              color: 'var(--brand-deep)',
               fontWeight: 600,
               fontSize: '0.82rem',
               textDecoration: 'none',
@@ -318,7 +319,7 @@ function Hero() {
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(155deg, rgba(248,250,252,0.95) 0%, rgba(37,99,235,0.03) 50%, rgba(248,250,252,0.99) 100%)', zIndex: 2 }} />
         <div className="hero-overlay" />
-        <img className="hero-bg-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80" alt="" style={{ opacity: 0.08 }} />
+        <img className="hero-bg-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1280&q=65" alt="" decoding="async" style={{ opacity: 0.08 }} />
       </div>
 
       {/* Floating watercolor blobs */}
@@ -329,7 +330,7 @@ function Hero() {
       <div style={{ position: 'relative', zIndex: 3, maxWidth: '1240px', margin: '0 auto', padding: '0 24px', width: '100%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '56px', alignItems: 'center', paddingTop: '110px', paddingBottom: '80px' }}>
 
         <div className="reveal active" style={{ transform: 'translateY(-15px)', transitionDelay: '0.1s' }}>
-          <span className="eyebrow" style={{ background: 'rgba(37,99,235,0.05)', border: '1px solid rgba(37,99,235,0.12)', padding: '6px 14px', borderRadius: '99px', color: 'var(--brand)' }}>
+          <span className="eyebrow" style={{ background: 'rgba(37,99,235,0.05)', border: '1px solid rgba(37,99,235,0.12)', padding: '6px 14px', borderRadius: '99px', color: 'var(--brand-deep)' }}>
             <span className="glow-dot" style={{ background: 'var(--accent)', boxShadow: '0 0 10px var(--accent)' }} /> Pune, India &nbsp;·&nbsp; Global Digital Engineering
           </span>
           <h1 style={{ fontSize: 'clamp(3rem,6vw,5.5rem)', fontWeight: 900, lineHeight: 1.02, marginBottom: '18px', color: 'var(--text-hi)', letterSpacing: '-0.04em' }}>
@@ -368,12 +369,12 @@ function Hero() {
             padding: '20px'
           }}>
             
-            {/* Ambient background ring glow with ecosystem.png asset blurred subtly */}
+            {/* Ambient background ring glow */}
             <div style={{ position: 'absolute', width: '300px', height: '300px', borderRadius: '50%', border: '1.5px dashed rgba(37,99,235,0.2)', animation: 'spin 40s linear infinite', zIndex: 0 }} />
             <div style={{ position: 'absolute', width: '220px', height: '220px', borderRadius: '50%', border: '1px solid rgba(6,182,212,0.15)', animation: 'spin 20s linear infinite reverse', zIndex: 0 }} />
             
             {/* Holographic generated visual asset backdrop */}
-            <img src="/src/assets/images/ecosystem.png" alt="" style={{ position: 'absolute', width: '240px', height: '240px', objectFit: 'contain', opacity: 0.18, filter: 'blur(2px)', zIndex: 0 }} />
+            <div style={{ position: 'absolute', width: '240px', height: '240px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(37,99,235,0.18) 0%, rgba(6,182,212,0.08) 50%, transparent 70%)', filter: 'blur(6px)', zIndex: 0 }} />
 
             {/* Orbiting Laser Particle Satellites */}
             <div style={{ position: 'absolute', width: '260px', height: '260px', borderRadius: '50%', animation: 'spin 10s linear infinite', zIndex: 1 }}>
@@ -522,9 +523,9 @@ function Hero() {
             <div key={activeNode} style={{ animation: 'fadeInTab 0.4s ease-out' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
                 <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: currentNode.color, boxShadow: `0 0 10px ${currentNode.color}` }} />
-                <h4 style={{ color: 'var(--text-hi)', fontSize: '1.2rem', fontWeight: 800, margin: 0 }}>
+                <h3 style={{ color: 'var(--text-hi)', fontSize: '1.2rem', fontWeight: 800, margin: 0 }}>
                   {currentNode.title}
-                </h4>
+                </h3>
               </div>
               <p style={{ color: 'var(--text-mid)', fontSize: '0.88rem', lineHeight: 1.65, margin: '0 0 20px 0' }}>
                 {currentNode.desc}
@@ -664,8 +665,12 @@ function HomePage() {
 
             <div className="reveal" style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', border: '1px solid var(--border)', boxShadow: 'var(--shadow-raise)' }}>
               <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80" 
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=720&q=75" 
                 alt="Improx Tech software development team collaborating"
+                loading="lazy"
+                decoding="async"
+                width="720"
+                height="480"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '380px', display: 'block' }}
               />
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(248,250,252,0.4) 0%, transparent 100%)' }} />
@@ -728,7 +733,7 @@ function HomePage() {
             {CASE_STUDIES.map((cs, i) => (
               <article key={i} className="glass-card reveal" style={{ padding: 0, overflow: 'hidden', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
                 <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
-                  <img src={cs.img} alt={cs.title} className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={cs.img} alt={cs.title} loading="lazy" decoding="async" width="600" height="400" className="img-hover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <span className="badge" style={{ position: 'absolute', top: '14px', left: '14px', background: 'var(--brand)', color: '#fff', border: 'none' }}>{cs.result}</span>
                 </div>
                 <div style={{ padding: '24px' }}>
@@ -756,11 +761,11 @@ function HomePage() {
               </p>
               <div style={{ display: 'flex', gap: '20px', marginTop: '30px', flexWrap: 'wrap' }}>
                 <div style={{ flex: '1 1 200px' }}>
-                  <h4 style={{ color: 'var(--text-hi)', fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px' }}>Cloud Pipelines</h4>
+                  <h3 style={{ color: 'var(--text-hi)', fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px' }}>Cloud Pipelines</h3>
                   <p style={{ color: 'var(--text-mid)', fontSize: '0.85rem' }}>Auto-deployments built on secure Docker & Kubernetes server nodes.</p>
                 </div>
                 <div style={{ flex: '1 1 200px' }}>
-                  <h4 style={{ color: 'var(--text-hi)', fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px' }}>Continuous Delivery</h4>
+                  <h3 style={{ color: 'var(--text-hi)', fontSize: '1.05rem', fontWeight: 700, marginBottom: '4px' }}>Continuous Delivery</h3>
                   <p style={{ color: 'var(--text-mid)', fontSize: '0.85rem' }}>Changes compiled, fully tested, and securely deployed in under 20 minutes.</p>
                 </div>
               </div>
@@ -769,8 +774,12 @@ function HomePage() {
             {/* Interactive Image Frame */}
             <div className="reveal" style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--border)', boxShadow: 'var(--shadow-raise)' }}>
               <img 
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80" 
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=75" 
                 alt="Improx Tech server network cloud infrastructure"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="530"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', minHeight: '340px' }}
               />
               <div style={{ position: 'absolute', bottom: '16px', left: '16px', right: '16px', background: 'var(--bg-card)', padding: '12px 18px', borderRadius: '10px', backdropFilter: 'blur(8px)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -843,6 +852,10 @@ function HomePage() {
                     <img
                       src={imgUrl}
                       alt={title}
+                      loading="lazy"
+                      decoding="async"
+                      width="600"
+                      height="360"
                       className="img-hover"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
@@ -904,6 +917,10 @@ function HomePage() {
                         <img
                           src={authorAvatar}
                           alt={authorName}
+                          loading="lazy"
+                          decoding="async"
+                          width="32"
+                          height="32"
                           style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--border-brand)' }}
                         />
                         <div>
@@ -969,8 +986,15 @@ function HomePage() {
 
               {/* Testimonial */}
               <div className="glass-card" style={{ padding: '22px 26px', display: 'flex', gap: '14px', marginTop: '24px', background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
-                  alt="Client" style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} />
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80"
+                  alt="Client"
+                  loading="lazy"
+                  decoding="async"
+                  width="44"
+                  height="44"
+                  style={{ width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', flexShrink: 0 }} 
+                />
                 <div>
                   <p style={{ color: 'var(--text-mid)', fontSize: '0.86rem', lineHeight: 1.65, marginBottom: '8px' }}>
                     "Improx Tech delivered our entire platform in 14 weeks — on time, on budget, beyond expectations."

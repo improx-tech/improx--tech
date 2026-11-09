@@ -126,7 +126,7 @@ function BlogPage() {
             return (
               <div className="featured-blog-card">
                 <Link to={`/blog/${sTargetId}`} className="featured-blog-img-wrap">
-                  <img src={sImage} alt={sTitle} className="img-hover" />
+                  <img src={sImage} alt={sTitle} width="800" height="480" decoding="async" className="img-hover" />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%)' }} />
                   <span
                     style={{
@@ -184,6 +184,10 @@ function BlogPage() {
                       <img
                         src={sAuthor.avatar}
                         alt={sAuthor.name}
+                        width="42"
+                        height="42"
+                        loading="lazy"
+                        decoding="async"
                         style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--border-brand)' }}
                       />
                       <div>

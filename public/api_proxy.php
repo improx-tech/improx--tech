@@ -1,6 +1,7 @@
 <?php
 // Improx Tech - API Reverse Proxy for Hostinger
 // Relays incoming /api/* and /wp-json/* requests to the local Python FastAPI backend
+// Falls back to static curated JSON if backend is offline
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -26,7 +27,8 @@ foreach ($ports as $port) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $_SERVER['REQUEST_METHOD']);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 1);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 2);
 
     // Forward incoming HTTP headers
     $forward_headers = [];
@@ -59,7 +61,16 @@ foreach ($ports as $port) {
     }
 }
 
+// Graceful fallback to verified curated posts for blog queries if Python backend is offline
 if ($response === false) {
+    $fallbackFile = __DIR__ . '/data/posts.json';
+    if (file_exists($fallbackFile) && (strpos($request_uri, '/blogs') !== false || strpos($request_uri, '/posts') !== false)) {
+        http_response_code(200);
+        header("Content-Type: application/json; charset=UTF-8");
+        echo file_get_contents($fallbackFile);
+        exit;
+    }
+
     http_response_code(502);
     header("Content-Type: application/json");
     echo json_encode([

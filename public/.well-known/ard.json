@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Improx Tech",
+  "description": "Digital engineering, enterprise application services, cloud architectures, and AI development.",
+  "version": "1.0.0",
+  "url": "https://improxtech.com",
+  "organization": {
+    "name": "Improx Tech Pvt. Ltd.",
+    "location": "Pune, India",
+    "contact": "enquiry@improxgroup.com",
+    "phone": "+91 91564 70600"
+  },
+  "capabilities": {
+    "llms_txt": "https://improxtech.com/llms.txt",
+    "sitemap": "https://improxtech.com/sitemap.xml",
+    "contact": "https://improxtech.com/contact"
+  },
+  "endpoints": {
+    "contact_form": "https://improxtech.com/contact.php",
+    "documentation": "https://improxtech.com/llms.txt"
+  }
+}
