@@ -1,22 +1,48 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "name": "Improx Tech",
-  "description": "Digital engineering, enterprise application services, cloud architectures, and AI development.",
-  "version": "1.0.0",
-  "url": "https://improxtech.com",
-  "organization": {
-    "name": "Improx Tech Pvt. Ltd.",
-    "location": "Pune, India",
-    "contact": "enquiry@improxgroup.com",
-    "phone": "+91 91564 70600"
-  },
-  "capabilities": {
-    "llms_txt": "https://improxtech.com/llms.txt",
-    "sitemap": "https://improxtech.com/sitemap.xml",
-    "contact": "https://improxtech.com/contact"
-  },
-  "endpoints": {
-    "contact_form": "https://improxtech.com/contact.php",
-    "documentation": "https://improxtech.com/llms.txt"
-  }
+  "$schema": "https://agenticresourcediscovery.org/schema/v1",
+  "entries": [
+    {
+      "@context": "https://agenticresourcediscovery.org/context/v1",
+      "identifier": "urn:air:improxtech.com:services:digital-engineering",
+      "displayName": "Improx Tech Enterprise Digital Engineering",
+      "type": "application/json",
+      "url": "https://improxtech.com/llms.txt",
+      "description": "Enterprise digital engineering, cloud architecture, custom software development, and AI agent solutions.",
+      "capabilities": [
+        "DigitalEngineering",
+        "CloudArchitecture",
+        "EnterpriseSoftware",
+        "GenerativeAI",
+        "BusinessIntelligence"
+      ],
+      "representativeQueries": [
+        "enterprise digital engineering services",
+        "cloud migration and microservices architecture",
+        "custom enterprise software development and AI integration",
+        "hire cloud and AI engineering experts"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "@context": "https://agenticresourcediscovery.org/context/v1",
+      "identifier": "urn:air:improxtech.com:resources:documentation",
+      "displayName": "Improx Tech LLM Documentation",
+      "type": "text/markdown",
+      "url": "https://improxtech.com/llms.txt",
+      "description": "Machine-readable documentation, capability manifests, and architecture guidelines for AI agents and LLMs.",
+      "capabilities": [
+        "AgenticDiscovery",
+        "Documentation",
+        "ArchitecturePlaybooks"
+      ],
+      "representativeQueries": [
+        "Improx Tech capability guide and services",
+        "what digital services does Improx Tech provide",
+        "engineering blueprints and architecture case studies"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-11-09T00:00:00Z"
+    }
+  ]
 }
