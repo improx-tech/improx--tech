@@ -51,6 +51,9 @@ function BlogCard({ post }) {
           className="img-hover"
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           loading="lazy"
+          decoding="async"
+          width="600"
+          height="360"
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.4) 100%)' }} />
         <span
@@ -110,6 +113,10 @@ function BlogCard({ post }) {
             <img
               src={authorAvatar}
               alt={authorName}
+              loading="lazy"
+              decoding="async"
+              width="32"
+              height="32"
               style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover', border: '1.5px solid var(--border-brand)' }}
             />
             <div>
