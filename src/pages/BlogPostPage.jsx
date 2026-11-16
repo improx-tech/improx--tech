@@ -59,6 +59,18 @@ function BlogPostPage() {
     }
   }, [id]);
 
+  useEffect(() => {
+    if (post) {
+      const pageTitle = `${title} | Improx Tech`;
+      document.title = pageTitle;
+      const canonical = `https://improxtech.com/blog/${post.slug || id}`;
+      let link = document.querySelector('link[rel="canonical"]');
+      if (link) {
+        link.setAttribute('href', canonical);
+      }
+    }
+  }, [post, title, id]);
+
   const title = post?.title?.rendered || (typeof post?.title === 'string' ? post.title : 'Technical Article');
   const rawContent = post?.content?.rendered || (typeof post?.content === 'string' ? post.content : '');
   const excerptText = post?.excerpt?.rendered ? post.excerpt.rendered.replace(/<[^>]+>/g, '').trim() : post?.meta_description || '';

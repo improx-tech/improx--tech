@@ -20,7 +20,7 @@ console.log('Generating pre-rendered SEO HTML files for all routes...');
 let count = 0;
 
 for (const [route, meta] of Object.entries(SEO_ROUTES)) {
-  const canonicalUrl = `${BASE_URL}${route === '/' ? '' : route}`;
+  const canonicalUrl = `${BASE_URL}${route === '/' ? '/' : route + '/'}`;
   let html = templateHtml;
 
   // 1. Replace Title

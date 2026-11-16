@@ -1,16 +1,20 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Force HTTPS
+  # 1. Force non-www (canonical domain)
+  RewriteCond %{HTTP_HOST} ^www\.improxtech\.com$ [NC]
+  RewriteRule ^(.*)$ https://improxtech.com/$1 [L,R=301]
+
+  # 2. Force HTTPS
   RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteRule ^(.*)$ https://improxtech.com%{REQUEST_URI} [L,R=301]
+
+  # 3. Prevent /index.html duplicate of homepage
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html(\?|\ |\HTTP/)
+  RewriteRule ^index\.html$ https://improxtech.com/ [R=301,L]
 
   # Allow direct access to .well-known
   RewriteRule ^\.well-known/ - [L]
-
-  # Route /api/* and /wp-json/* via PHP proxy to Python FastAPI backend
-  RewriteRule ^api(/.*)?$ /api_proxy.php [QSA,L]
-  RewriteRule ^wp-json(/.*)?$ /api_proxy.php [QSA,L]
 
   # Single Page Application (SPA) client routing
   RewriteBase /
@@ -20,6 +24,17 @@
   RewriteCond %{REQUEST_FILENAME} !-l
   RewriteRule . /index.html [L]
 </IfModule>
+
+# Protect backend code and SQLite database from public download
+<FilesMatch "\.(db|sqlite|sqlite3|py|env|log)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</FilesMatch>
 
 # Security Headers
 <IfModule mod_headers.c>

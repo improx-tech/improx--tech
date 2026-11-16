@@ -102,7 +102,7 @@ export default function SEOManager() {
     if (matchedSEO) {
       applySEO({
         ...matchedSEO,
-        canonicalUrl: `${BASE_URL}${path === '/' ? '' : path}`,
+        canonicalUrl: `${BASE_URL}${path === '/' ? '/' : path + '/'}`,
       });
     } else if (!path.startsWith('/blog/')) {
       // General fallback if route is not explicitly mapped and not a dynamic blog

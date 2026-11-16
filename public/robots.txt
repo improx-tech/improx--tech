@@ -5,9 +5,6 @@ User-agent: *
 Allow: /
 Allow: /llms.txt
 Allow: /.well-known/ard.json
-Disallow: /api/
-Disallow: /contact.php
-Disallow: /api_proxy.php
 
 # Sitemap
 Sitemap: https://improxtech.com/sitemap.xml

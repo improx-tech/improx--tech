@@ -14,7 +14,7 @@
 
   <!-- 2. Services Landing Hub -->
   <url>
-    <loc>https://improxtech.com/services</loc>
+    <loc>https://improxtech.com/services/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -22,67 +22,67 @@
 
   <!-- 3. Application Services Hub & Subpages -->
   <url>
-    <loc>https://improxtech.com/services/application-services</loc>
+    <loc>https://improxtech.com/services/application-services/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/custom-software</loc>
+    <loc>https://improxtech.com/services/application-services/custom-software/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/mobile-app-development</loc>
+    <loc>https://improxtech.com/services/application-services/mobile-app-development/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/api-development</loc>
+    <loc>https://improxtech.com/services/application-services/api-development/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/maintenance-support</loc>
+    <loc>https://improxtech.com/services/application-services/maintenance-support/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/enterprise-applications</loc>
+    <loc>https://improxtech.com/services/application-services/enterprise-applications/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/web-applications</loc>
+    <loc>https://improxtech.com/services/application-services/web-applications/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/system-integration</loc>
+    <loc>https://improxtech.com/services/application-services/system-integration/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/saas-development</loc>
+    <loc>https://improxtech.com/services/application-services/saas-development/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/cloud-applications</loc>
+    <loc>https://improxtech.com/services/application-services/cloud-applications/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/application-services/legacy-modernization</loc>
+    <loc>https://improxtech.com/services/application-services/legacy-modernization/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -90,43 +90,43 @@
 
   <!-- 4. Product Engineering Hub & Subpages -->
   <url>
-    <loc>https://improxtech.com/services/product-engineering</loc>
+    <loc>https://improxtech.com/services/product-engineering/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/product-engineering/product-strategy</loc>
+    <loc>https://improxtech.com/services/product-engineering/product-strategy/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/product-engineering/rapid-prototyping</loc>
+    <loc>https://improxtech.com/services/product-engineering/rapid-prototyping/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/product-engineering/devops</loc>
+    <loc>https://improxtech.com/services/product-engineering/devops/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/product-engineering/ux-design</loc>
+    <loc>https://improxtech.com/services/product-engineering/ux-design/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/product-engineering/qa-testing</loc>
+    <loc>https://improxtech.com/services/product-engineering/qa-testing/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/product-engineering/open-source</loc>
+    <loc>https://improxtech.com/services/product-engineering/open-source/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -134,43 +134,43 @@
 
   <!-- 5. Technology Services Hub & Subpages -->
   <url>
-    <loc>https://improxtech.com/services/technology-services</loc>
+    <loc>https://improxtech.com/services/technology-services/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/technology-services/cloud-migration</loc>
+    <loc>https://improxtech.com/services/technology-services/cloud-migration/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/technology-services/data-engineering</loc>
+    <loc>https://improxtech.com/services/technology-services/data-engineering/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/technology-services/infrastructure</loc>
+    <loc>https://improxtech.com/services/technology-services/infrastructure/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/technology-services/devsecops</loc>
+    <loc>https://improxtech.com/services/technology-services/devsecops/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/technology-services/cybersecurity</loc>
+    <loc>https://improxtech.com/services/technology-services/cybersecurity/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/technology-services/iot</loc>
+    <loc>https://improxtech.com/services/technology-services/iot/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -178,43 +178,43 @@
 
   <!-- 6. AI & Business Intelligence Hub & Subpages -->
   <url>
-    <loc>https://improxtech.com/services/ai-ml</loc>
+    <loc>https://improxtech.com/services/ai-ml/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/ai-ml/generative-ai</loc>
+    <loc>https://improxtech.com/services/ai-ml/generative-ai/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/ai-ml/business-intelligence</loc>
+    <loc>https://improxtech.com/services/ai-ml/business-intelligence/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/ai-ml/data-visualisation</loc>
+    <loc>https://improxtech.com/services/ai-ml/data-visualisation/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/ai-ml/machine-learning</loc>
+    <loc>https://improxtech.com/services/ai-ml/machine-learning/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/ai-ml/nlp-automation</loc>
+    <loc>https://improxtech.com/services/ai-ml/nlp-automation/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/services/ai-ml/predictive-analytics</loc>
+    <loc>https://improxtech.com/services/ai-ml/predictive-analytics/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -222,28 +222,48 @@
 
   <!-- 7. Company & Core Pages -->
   <url>
-    <loc>https://improxtech.com/about</loc>
+    <loc>https://improxtech.com/about/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/blog</loc>
+    <loc>https://improxtech.com/blog/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/careers</loc>
+    <loc>https://improxtech.com/careers/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://improxtech.com/contact</loc>
+    <loc>https://improxtech.com/contact/</loc>
     <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- 8. Technical Articles & Journal -->
+  <url>
+    <loc>https://improxtech.com/blog/architecting-high-throughput-digital-platforms</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://improxtech.com/blog/benchmarking-multi-cloud-kubernetes-latency</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://improxtech.com/blog/enterprise-ai-agent-orchestration-lessons</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>

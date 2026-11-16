@@ -1,0 +1,84 @@
+warning: in the working copy of '.github/workflows/deploy.yml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.vscode/settings.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'postcss.config.cjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/.htaccess', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/.well-known/ard.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/contact.php', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/data/posts.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/llms.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/robots.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'public/sitemap.xml', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/prerender-seo.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/AlohaServicesSection.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/BlogCard.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ContactForm.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Footer.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/HeroSection.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/Navbar.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/SEOManager.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/SectionWrapper.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ServiceCard.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/components/ServiceSubpageLayout.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/data/posts.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/layouts/MainLayout.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AboutPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/AiMlPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/BusinessIntelligencePage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/DataVisualisationPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/GenerativeAiPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/MachineLearningPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/NlpAutomationPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/AiMl/PredictiveAnalyticsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/ApiDevelopmentPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/CloudApplicationsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/CustomSoftwarePage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/EnterpriseApplicationsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/LegacyModernizationPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/MaintenanceSupportPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/MobileAppDevelopmentPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/SaaSDevelopmentPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/SystemIntegrationPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServices/WebApplicationsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ApplicationServicesPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/BlogPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/BlogPostPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/CareersPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ContactPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/HomePage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/DevOpsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/OpenSourcePage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/ProductEngineeringPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/ProductStrategyPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/QATestingPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/RapidPrototypingPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ProductEngineering/UXDesignPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/ServicesPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/CloudMigrationPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/CybersecurityPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/DataEngineeringPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/DevSecOpsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/InfrastructurePage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/IoTPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/pages/TechnologyServices/TechnologyServicesPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/global.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/styles/hero.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/seoData.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/utils/wpApi.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'vite.config.js', LF will be replaced by CRLF the next time Git touches it
+ public/.htaccess              |  27 [32m++++++++[m[31m---[m
+ public/robots.txt             |   3 [31m--[m
+ public/sitemap.xml            |  94 [32m++++++++++++++++++++++[m[31m--------------[m
+ scripts/prerender-seo.js      |   2 [32m+[m[31m-[m
+ src/App.jsx                   |   4 [32m++[m
+ src/components/SEOManager.jsx |   2 [32m+[m[31m-[m
+ src/pages/BlogPostPage.jsx    |  12 [32m+++++[m
+ src/utils/wpApi.js            |  74 [32m++++[m[31m------------------------[m
+ vite.config.js                | 110 [32m+[m[31m-----------------------------------------[m
+ 9 files changed, 106 insertions(+), 222 deletions(-)

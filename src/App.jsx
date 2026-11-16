@@ -11,6 +11,7 @@ import BlogPage               from './pages/BlogPage';
 import BlogPostPage           from './pages/BlogPostPage';
 import ContactPage            from './pages/ContactPage';
 import CareersPage            from './pages/CareersPage';
+import NotFoundPage           from './pages/NotFoundPage';
 
 // ── Application Services ──────────────────────────────
 import ApplicationServicesPage  from './pages/ApplicationServicesPage';
@@ -189,6 +190,9 @@ function App() {
             <Route path="data-visualisation"    element={<DataVisualisationPage />}   />
             <Route path="predictive-analytics"  element={<PredictiveAnalyticsPage />} />
           </Route>
+
+          {/* Catch-all 404 Route */}
+          <Route path="*" element={<NotFoundPage />} />
 
         </Route>
       </Routes>
